@@ -19,5 +19,5 @@ data class BookListState(
     val favoriteBooks: List<Book> = emptyList(),
     val isLoading: Boolean = false,
     val selectedTabIndex: Int = 0,
-    val erroeMessage: UiText? = null,
+    val errorMessage: UiText? = null,
 )
