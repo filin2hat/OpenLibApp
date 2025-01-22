@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <string name="app_name">Open Library CMP</string>
+    <string name="search_hint">Search for a book...</string>
+    <string name="clear_search_query">Clear search query</string>
+
+</resources>
