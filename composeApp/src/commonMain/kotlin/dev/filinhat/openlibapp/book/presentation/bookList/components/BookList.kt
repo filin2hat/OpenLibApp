@@ -14,6 +14,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import dev.filinhat.openlibapp.book.domain.Book
 
+/**
+ * Компонента для отображения списка книг.
+ *
+ * @param books Список книг для отображения.
+ * @param onBookClick Функция, вызываемая при нажатии на элемент списка (книгу).
+ * @param modifier Модификатор для настройки внешнего вида компонента.
+ * @param scrollState Состояние прокрутки списка. По умолчанию используется `rememberLazyListState()`.
+ */
 @Composable
 fun BookList(
     books: List<Book>,

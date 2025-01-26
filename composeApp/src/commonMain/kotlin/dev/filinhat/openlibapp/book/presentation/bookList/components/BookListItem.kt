@@ -41,6 +41,15 @@ import openlibrarycmpapp.composeapp.generated.resources.book_error_2
 import org.jetbrains.compose.resources.painterResource
 import kotlin.math.round
 
+/**
+ * Компонент для отображения элемента списка книг.
+ *
+ * Отображает информацию о книге, такую как название, автор, рейтинг и обложку.
+ *
+ * @param book Объект книги, данные которой будут отображены.
+ * @param onClick Функция, вызываемая при нажатии на элемент списка.
+ * @param modifier Модификатор для настройки внешнего вида компонента.
+ */
 @Composable
 fun BookListItem(
     book: Book,
