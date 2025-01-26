@@ -10,9 +10,27 @@ import io.ktor.client.request.parameter
 
 private const val BASE_URL = "https://openlibrary.org"
 
+/**
+ * Реализация [RemoteBookDataSource] с использованием Ktor для сетевых запросов.
+ *
+ * Этот класс предоставляет доступ к данным о книгах из API Open Library
+ * с помощью HTTP-клиента Ktor.
+ *
+ * @property httpClient HTTP-клиент Ktor, используемый для выполнения запросов.
+ */
 class KtorRemoteBookDataSource(
     private val httpClient: HttpClient,
 ) : RemoteBookDataSource {
+    /**
+     * Выполняет поиск книг по заданному запросу, используя API Open Library.
+     *
+     * @param query Поисковый запрос.
+     * @param resultLimit Максимальное количество результатов, которые нужно вернуть.
+     *                    Если `null`, то будет возвращено максимальное количество результатов,
+     *                    поддерживаемое API.
+     * @return `Result` с объектом [SearchedBookDto], содержащим результаты поиска,
+     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
+     */
     override suspend fun searchBooks(
         query: String,
         resultLimit: Int?,
