@@ -3,5 +3,7 @@
     <string name="app_name">Open Library CMP</string>
     <string name="search_hint">Search for a book...</string>
     <string name="clear_search_query">Clear search query</string>
+    <string name="search_results">Search results</string>
+    <string name="favorites">Favorites</string>
 
 </resources>
