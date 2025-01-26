@@ -37,7 +37,7 @@ fun BookList(
                     Modifier
                         .widthIn(max = 700.dp)
                         .fillMaxWidth()
-                        .padding(16.dp),
+                        .padding(horizontal = 16.dp),
                 onClick = { onBookClick(book) },
             )
         }
