@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.core.data
+package dev.filinhat.openlibapp.core.data.network
 
 import dev.filinhat.openlibapp.core.domain.DataError
 import dev.filinhat.openlibapp.core.domain.Result

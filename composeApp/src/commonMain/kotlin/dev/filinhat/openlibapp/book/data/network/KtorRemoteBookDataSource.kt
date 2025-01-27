@@ -1,7 +1,8 @@
 package dev.filinhat.openlibapp.book.data.network
 
+import dev.filinhat.openlibapp.book.data.dto.SearchResponseDto
 import dev.filinhat.openlibapp.book.data.dto.SearchedBookDto
-import dev.filinhat.openlibapp.core.data.safeCall
+import dev.filinhat.openlibapp.core.data.network.safeCall
 import dev.filinhat.openlibapp.core.domain.DataError
 import dev.filinhat.openlibapp.core.domain.Result
 import io.ktor.client.HttpClient
@@ -34,7 +35,7 @@ class KtorRemoteBookDataSource(
     override suspend fun searchBooks(
         query: String,
         resultLimit: Int?,
-    ): Result<SearchedBookDto, DataError.Remote> =
+    ): Result<SearchResponseDto, DataError.Remote> =
         safeCall {
             httpClient.get(
                 "$BASE_URL/search.json",
