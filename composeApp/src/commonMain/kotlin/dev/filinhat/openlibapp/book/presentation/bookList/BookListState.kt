@@ -12,7 +12,7 @@ import kotlin.random.Random
  * @property favoriteBooks Список избранных книг.
  * @property isLoading Индикатор загрузки данных.
  * @property selectedTabIndex Индекс выбранной вкладки.
- * @property erroeMessage Текст сообщения об ошибке.
+ * @property errorMessage Текст сообщения об ошибке.
  */
 data class BookListState(
     val searchQuery: String = "",
