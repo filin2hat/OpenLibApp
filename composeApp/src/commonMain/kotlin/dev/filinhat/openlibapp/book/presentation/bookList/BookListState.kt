@@ -15,7 +15,7 @@ import kotlin.random.Random
  * @property errorMessage Текст сообщения об ошибке.
  */
 data class BookListState(
-    val searchQuery: String = "",
+    val searchQuery: String = "Android",
     val searchResults: List<Book> = books,
     val favoriteBooks: List<Book> = emptyList(),
     val isLoading: Boolean = false,

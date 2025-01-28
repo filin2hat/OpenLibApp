@@ -6,15 +6,16 @@ package dev.filinhat.openlibapp.core.domain
  * @param D Тип данных в случае успешного результата.
  * @param E Тип ошибки в случае неудачи. Должен быть подклассом [Error].
  */
-sealed interface Result<out D, out E: Error> {
-
+sealed interface Result<out D, out E : Error> {
     /**
      * Класс для представления успешного результата.
      *
      * @param D Тип данных результата.
      * @property data Данные успешного результата.
      */
-    data class Success<out D>(val data: D): Result<D, Nothing>
+    data class Success<out D>(
+        val data: D,
+    ) : Result<D, Nothing>
 
     /**
      * Класс для представления ошибки.
@@ -22,8 +23,9 @@ sealed interface Result<out D, out E: Error> {
      * @param E Тип ошибки, должен быть подклассом [Error].
      * @property error Детали ошибки.
      */
-    data class Error<out E: dev.filinhat.openlibapp.core.domain.Error>(val error: E):
-        Result<Nothing, E>
+    data class Error<out E : dev.filinhat.openlibapp.core.domain.Error>(
+        val error: E,
+    ) : Result<Nothing, E>
 }
 
 /**
@@ -32,21 +34,18 @@ sealed interface Result<out D, out E: Error> {
  * @param map Функция преобразования данных.
  * @return Новый результат с преобразованными данными или той же ошибкой.
  */
-inline fun <T, E: Error, R> Result<T, E>.map(map: (T) -> R): Result<R, E> {
-    return when(this) {
+inline fun <T, E : Error, R> Result<T, E>.map(map: (T) -> R): Result<R, E> =
+    when (this) {
         is Result.Error -> Result.Error(error)
         is Result.Success -> Result.Success(map(data))
     }
-}
 
 /**
  * Преобразует результат в пустой результат [EmptyResult], игнорируя данные.
  *
  * @return Пустой результат [EmptyResult] с той же ошибкой или успехом.
  */
-fun <T, E: Error> Result<T, E>.asEmptyDataResult(): EmptyResult<E> {
-    return map {  }
-}
+fun <T, E : Error> Result<T, E>.asEmptyDataResult(): EmptyResult<E> = map { }
 
 /**
  * Выполняет заданное действие, если результат успешный.
@@ -54,15 +53,14 @@ fun <T, E: Error> Result<T, E>.asEmptyDataResult(): EmptyResult<E> {
  * @param action Действие, выполняемое с данными успешного результата.
  * @return Исходный результат, чтобы поддерживать цепочку вызовов.
  */
-inline fun <T, E: Error> Result<T, E>.onSuccess(action: (T) -> Unit): Result<T, E> {
-    return when(this) {
+inline fun <T, E : Error> Result<T, E>.onSuccess(action: (T) -> Unit): Result<T, E> =
+    when (this) {
         is Result.Error -> this
         is Result.Success -> {
             action(data)
             this
         }
     }
-}
 
 /**
  * Выполняет заданное действие, если результат содержит ошибку.
@@ -70,15 +68,15 @@ inline fun <T, E: Error> Result<T, E>.onSuccess(action: (T) -> Unit): Result<T, 
  * @param action Действие, выполняемое с данными ошибки.
  * @return Исходный результат, чтобы поддерживать цепочку вызовов.
  */
-inline fun <T, E: Error> Result<T, E>.onError(action: (E) -> Unit): Result<T, E> {
-    return when(this) {
+inline fun <T, E : Error> Result<T, E>.onError(action: (E) -> Unit): Result<T, E> =
+    when (this) {
         is Result.Error -> {
             action(error)
             this
         }
+
         is Result.Success -> this
     }
-}
 
 /**
  * Тип, представляющий пустой успешный результат или ошибку.
