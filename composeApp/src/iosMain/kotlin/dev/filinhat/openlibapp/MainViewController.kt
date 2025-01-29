@@ -1,11 +1,12 @@
 package dev.filinhat.openlibapp
 
-import androidx.compose.runtime.remember
 import androidx.compose.ui.window.ComposeUIViewController
-import io.ktor.client.engine.darwin.Darwin
+import dev.filinhat.openlibapp.di.initKoin
 
-fun MainViewController() = ComposeUIViewController {
-    App(
-        engine = remember { Darwin.create() }
-    )
+fun MainViewController() {
+    ComposeUIViewController(
+        configure = { initKoin() },
+    ) {
+        App()
+    }
 }
