@@ -14,7 +14,7 @@ import dev.filinhat.openlibapp.book.domain.Book
  */
 fun SearchedBookDto.toBook(): Book =
     Book(
-        id = id,
+        id = id.substringAfterLast("/"),
         title = title,
         imageUrl =
             if (coverKey != null) {
