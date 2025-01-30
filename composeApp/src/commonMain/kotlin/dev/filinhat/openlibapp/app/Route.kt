@@ -10,7 +10,7 @@ sealed interface Route {
     data object BookList : Route
 
     @Serializable
-    data class BookDetails(
-        val bookId: String,
+    data class BookDetail(
+        val id: String,
     ) : Route
 }
