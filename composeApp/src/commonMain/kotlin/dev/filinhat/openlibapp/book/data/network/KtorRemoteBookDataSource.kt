@@ -1,5 +1,6 @@
 package dev.filinhat.openlibapp.book.data.network
 
+import dev.filinhat.openlibapp.book.data.dto.BookWorkDto
 import dev.filinhat.openlibapp.book.data.dto.SearchResponseDto
 import dev.filinhat.openlibapp.book.data.dto.SearchedBookDto
 import dev.filinhat.openlibapp.core.data.network.safeCall
@@ -36,7 +37,7 @@ class KtorRemoteBookDataSource(
         query: String,
         resultLimit: Int?,
     ): Result<SearchResponseDto, DataError.Remote> =
-        safeCall {
+        safeCall<SearchResponseDto> {
             httpClient.get(
                 "$BASE_URL/search.json",
             ) {
@@ -48,5 +49,12 @@ class KtorRemoteBookDataSource(
                     "key,title,language,cover_edition_key,cover_i,author_key,author_name,first_publish_year,ratings_average,ratings_count,number_of_pages_median,edition_count",
                 )
             }
+        }
+
+    override suspend fun getBookDetails(bookWorkId: String): Result<BookWorkDto, DataError.Remote> =
+        safeCall<BookWorkDto> {
+            httpClient.get(
+                "$BASE_URL/works/$bookWorkId.json",
+            )
         }
 }

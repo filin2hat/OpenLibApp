@@ -1,5 +1,6 @@
 package dev.filinhat.openlibapp.book.data.network
 
+import dev.filinhat.openlibapp.book.data.dto.BookWorkDto
 import dev.filinhat.openlibapp.book.data.dto.SearchResponseDto
 import dev.filinhat.openlibapp.book.data.dto.SearchedBookDto
 import dev.filinhat.openlibapp.core.domain.DataError
@@ -24,4 +25,6 @@ interface RemoteBookDataSource {
         query: String,
         resultLimit: Int? = null,
     ): Result<SearchResponseDto, DataError.Remote>
+
+    suspend fun getBookDetails(bookWorkId: String): Result<BookWorkDto, DataError.Remote>
 }
