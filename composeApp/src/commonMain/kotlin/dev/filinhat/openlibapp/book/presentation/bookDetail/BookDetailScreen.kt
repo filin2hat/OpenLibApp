@@ -40,6 +40,16 @@ import openlibrarycmpapp.composeapp.generated.resources.book_synopsis
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.round
 
+/**
+ * Корневой компонент экрана с детальной информацией о книге.
+ *
+ * Компонент отвечает за сбор состояния из [BookDetailViewModel]
+ * и передачу его в [BookDetailScreen].
+ *
+ * @param viewModel ViewModel для экрана с детальной информацией о книге.
+ * @param onBackClick Лямбда-функция, вызываемая при нажатии кнопки "Назад".
+ * @see BookDetailScreen
+ */
 @Composable
 fun BookDetailScreenRoot(
     viewModel: BookDetailViewModel,
@@ -59,6 +69,17 @@ fun BookDetailScreenRoot(
     )
 }
 
+/**
+ * Экран с детальной информацией о книге.
+ *
+ * Компонент отображает детальную информацию о книге,
+ * включая название, авторов, рейтинг, количество страниц, языки и описание.
+ *
+ * @param state Состояние экрана.
+ * @param onAction Лямбда-функция, вызываемая при возникновении действий пользователя.
+ * @see BookDetailState
+ * @see BookDetailAction
+ */
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
 private fun BookDetailScreen(
@@ -164,14 +185,12 @@ private fun BookDetailScreen(
                 } else {
                     Text(
                         text =
-                            if (state.book.description.isNullOrBlank()) {
+                            state.book.description.ifBlank {
                                 stringResource(Res.string.book_description_unavailable)
-                            } else {
-                                state.book.description
                             },
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Justify,
-                        color = if (state.book.description.isNullOrBlank()) Color.Black.copy(alpha = 0.4f) else Color.Black,
+                        color = if (state.book.description.isBlank()) Color.Black.copy(alpha = 0.4f) else Color.Black,
                         modifier = Modifier.padding(vertical = 8.dp),
                     )
                 }

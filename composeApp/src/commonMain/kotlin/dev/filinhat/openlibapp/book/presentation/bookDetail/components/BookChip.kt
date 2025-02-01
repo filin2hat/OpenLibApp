@@ -13,7 +13,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import dev.filinhat.openlibapp.book.presentation.bookDetail.components.enums.ChipSize
 import dev.filinhat.openlibapp.core.presentation.LightBlue
 
 /**
@@ -50,4 +49,19 @@ fun BookChip(
             chipContent()
         }
     }
+}
+
+/**
+ * Возможные размеры чипа.
+ */
+enum class ChipSize {
+    /**
+     * Маленький размер чипа.
+     */
+    SMALL,
+
+    /**
+     * Обычный размер чипа.
+     */
+    REGULAR,
 }

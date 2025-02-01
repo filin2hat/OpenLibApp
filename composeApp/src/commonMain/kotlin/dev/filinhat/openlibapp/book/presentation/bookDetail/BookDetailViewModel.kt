@@ -14,9 +14,18 @@ import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+/**
+ * ViewModel для экрана с детальной информацией о книге.
+ *
+ * Этот ViewModel отвечает за получение и управление данными о книге,
+ * а также за обработку действий пользователя на экране.
+ *
+ * @property bookRepository Репозиторий для доступа к данным о книгах.
+ * @property savedStateHandle Состояние, сохраненное для ViewModel.
+ */
 class BookDetailViewModel(
     private val bookRepository: BookRepository,
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
 ) : ViewModel() {
     private val _state = MutableStateFlow(BookDetailState())
     val state =

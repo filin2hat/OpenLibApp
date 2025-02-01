@@ -26,5 +26,14 @@ interface RemoteBookDataSource {
         resultLimit: Int? = null,
     ): Result<SearchResponseDto, DataError.Remote>
 
+    /**
+     * Получает детальную информацию о произведении (книге) по его идентификатору.
+     *
+     * @param bookWorkId Идентификатор произведения (книги).
+     * @return `Result` с объектом [BookWorkDto], содержащим детальную информацию о произведении,
+     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
+     * @see BookWorkDto
+     * @see DataError.Remote
+     */
     suspend fun getBookDetails(bookWorkId: String): Result<BookWorkDto, DataError.Remote>
 }

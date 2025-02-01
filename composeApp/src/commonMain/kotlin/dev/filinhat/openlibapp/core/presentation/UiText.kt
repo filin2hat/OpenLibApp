@@ -10,13 +10,14 @@ import org.jetbrains.compose.resources.stringResource
  * Этот интерфейс поддерживает как динамические строки, так и строки из ресурсов.
  */
 sealed interface UiText {
-
     /**
      * Класс для представления динамической строки.
      *
      * @property value Текст строки.
      */
-    data class DynamicString(val value: String) : UiText
+    data class DynamicString(
+        val value: String,
+    ) : UiText
 
     /**
      * Класс для представления строки из ресурсов.
@@ -26,7 +27,7 @@ sealed interface UiText {
      */
     class StringResourceId(
         val id: StringResource,
-        val args: Array<Any> = arrayOf()
+        val args: Array<Any> = arrayOf(),
     ) : UiText
 
     /**
@@ -37,10 +38,9 @@ sealed interface UiText {
      * @return Текст в виде строки.
      */
     @Composable
-    fun asString(): String {
-        return when (this) {
+    fun asString(): String =
+        when (this) {
             is DynamicString -> value
             is StringResourceId -> stringResource(resource = id, formatArgs = args)
         }
-    }
 }

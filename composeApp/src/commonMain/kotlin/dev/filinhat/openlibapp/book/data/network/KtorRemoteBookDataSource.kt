@@ -2,7 +2,6 @@ package dev.filinhat.openlibapp.book.data.network
 
 import dev.filinhat.openlibapp.book.data.dto.BookWorkDto
 import dev.filinhat.openlibapp.book.data.dto.SearchResponseDto
-import dev.filinhat.openlibapp.book.data.dto.SearchedBookDto
 import dev.filinhat.openlibapp.core.data.network.safeCall
 import dev.filinhat.openlibapp.core.domain.DataError
 import dev.filinhat.openlibapp.core.domain.Result
@@ -23,16 +22,6 @@ private const val BASE_URL = "https://openlibrary.org"
 class KtorRemoteBookDataSource(
     private val httpClient: HttpClient,
 ) : RemoteBookDataSource {
-    /**
-     * Выполняет поиск книг по заданному запросу, используя API Open Library.
-     *
-     * @param query Поисковый запрос.
-     * @param resultLimit Максимальное количество результатов, которые нужно вернуть.
-     *                    Если `null`, то будет возвращено максимальное количество результатов,
-     *                    поддерживаемое API.
-     * @return `Result` с объектом [SearchedBookDto], содержащим результаты поиска,
-     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
-     */
     override suspend fun searchBooks(
         query: String,
         resultLimit: Int?,

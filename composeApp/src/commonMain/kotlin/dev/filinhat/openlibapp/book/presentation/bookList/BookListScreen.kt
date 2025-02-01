@@ -48,10 +48,14 @@ import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
 /**
- * Корневой экран списка книг.
+ * Корневой компонент экрана списка книг.
  *
- * @param viewModel Модель представления для экрана списка книг.
- * @param onBookClick Обработчик нажатия на книгу.
+ * Компонент отвечает за сбор состояния из [BookListViewModel]
+ * и передачу его в [BookListScreen].
+ *
+ * @param viewModel ViewModel для экрана списка книг.
+ * @param onBookClick Лямбда-функция, вызываемая при нажатии на книгу.
+ * @see BookListScreen
  */
 @Composable
 fun BookListScreenRoot(
@@ -72,6 +76,18 @@ fun BookListScreenRoot(
     )
 }
 
+/**
+ * Экран списка книг.
+ *
+ * Компонент отображает список книг, результаты поиска и избранные книги.
+ * Он также включает в себя строку поиска и вкладки для переключения между результатами поиска и избранным.
+ *
+ * @param state Состояние экрана.
+ * @param onAction Лямбда-функция, вызываемая при возникновении действий пользователя.
+ * @param modifier Модификатор для настройки внешнего вида компонента.
+ * @see BookListState
+ * @see BookListAction
+ */
 @Composable
 fun BookListScreen(
     state: BookListState,

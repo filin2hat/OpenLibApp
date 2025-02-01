@@ -19,13 +19,6 @@ import dev.filinhat.openlibapp.core.domain.map
 class DefaultBookRepository(
     private val remoteBookDataSource: RemoteBookDataSource,
 ) : BookRepository {
-    /**
-     * Выполняет поиск книг по заданному запросу.
-     *
-     * @param query Поисковый запрос.
-     * @return `Result` со списком объектов [Book], представляющих найденные книги,
-     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
-     */
     override suspend fun searchBooks(query: String): Result<List<Book>, DataError.Remote> =
         remoteBookDataSource
             .searchBooks(query)
@@ -33,9 +26,8 @@ class DefaultBookRepository(
                 searchResponseDto.results.map { it.toBook() }
             }
 
-    override suspend fun getBookDescription(bookId: String): Result<String?, DataError> {
-        return remoteBookDataSource
+    override suspend fun getBookDescription(bookId: String): Result<String?, DataError> =
+        remoteBookDataSource
             .getBookDetails(bookId)
             .map { it.description }
-    }
 }

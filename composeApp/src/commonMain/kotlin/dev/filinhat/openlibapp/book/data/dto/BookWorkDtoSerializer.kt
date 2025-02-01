@@ -14,7 +14,18 @@ import kotlinx.serialization.json.JsonDecoder
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
+/**
+ * Пользовательский сериализатор для [BookWorkDto].
+ *
+ * Этот сериализатор обрабатывает десериализацию поля "description",
+ * которое может быть либо объектом [DescriptionDto], либо простой строкой.
+ *
+ * @see BookWorkDto
+ */
 object BookWorkDtoSerializer : KSerializer<BookWorkDto> {
+    /**
+     * Дескриптор сериализатора.
+     */
     override val descriptor: SerialDescriptor =
         buildClassSerialDescriptor(
             BookWorkDto::class.simpleName!!,
@@ -22,6 +33,13 @@ object BookWorkDtoSerializer : KSerializer<BookWorkDto> {
             element<String?>("description")
         }
 
+    /**
+     * Десериализует данные в объект [BookWorkDto].
+     *
+     * @param decoder Декодер для десериализации.
+     * @return Десериализованный объект [BookWorkDto].
+     * @throws SerializationException Если декодер не является [JsonDecoder] или если обнаружен неожиданный индекс.
+     */
     override fun deserialize(decoder: Decoder): BookWorkDto =
         decoder.decodeStructure(descriptor) {
             var description: String? = null
@@ -56,6 +74,12 @@ object BookWorkDtoSerializer : KSerializer<BookWorkDto> {
             return@decodeStructure BookWorkDto(description)
         }
 
+    /**
+     * Сериализует объект [BookWorkDto] в данные.
+     *
+     * @param encoder Энкодер для сериализации.
+     * @param value Объект [BookWorkDto] для сериализации.
+     */
     override fun serialize(
         encoder: Encoder,
         value: BookWorkDto,
