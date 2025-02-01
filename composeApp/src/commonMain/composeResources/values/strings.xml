@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <resources>
     <string name="app_name">Open Library CMP</string>
+
+    <!-- Book list screen string resources -->
     <string name="search_hint">Search for a book...</string>
     <string name="clear_search_query">Clear search query</string>
     <string name="search_results">Search results</string>
     <string name="favorites">Favorites</string>
     <string name="no_results">Oops, no results found. Try different keywords.</string>
     <string name="empty_favorites_list">Your favorites list is empty.</string>
+
+    <!-- Book detail screen string resources -->
+    <string name="book_cover">Book cover</string>
+    <string name="book_raiting">Book raiting</string>
+    <string name="book_pages">Pages</string>
+    <string name="book_languages">Languages</string>
+    <string name="book_synopsis">Synopsis</string>
+    <string name="book_description_unavailable">Description not available.</string>
+    <string name="btn_go_back">Go back button</string>
+    <string name="btn_mark_as_favorite">Mark as favorite</string>
+    <string name="btn_remove_from_favorites">Remove from favorites</string>
 
     <!-- Error messages -->
     <string name="error_disk_full">Insufficient storage space. Please free up some space and try again.</string>
