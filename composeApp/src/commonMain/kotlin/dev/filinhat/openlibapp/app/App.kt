@@ -2,15 +2,11 @@ package dev.filinhat.openlibapp.app
 
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -20,6 +16,9 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
 import androidx.navigation.compose.rememberNavController
+import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailAction
+import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailScreenRoot
+import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailViewModel
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListScreenRoot
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListViewModel
 import dev.filinhat.openlibapp.book.presentation.bookList.SelectedBookViewModel
@@ -37,10 +36,10 @@ fun App(modifier: Modifier = Modifier) {
                 composable<Route.BookList>(
                     exitTransition = { slideOutHorizontally() },
                     popEnterTransition = { slideInHorizontally() },
-                ) {
+                ) { navBackStackEntry ->
                     val viewModel = koinViewModel<BookListViewModel>()
                     val selectedBookViewModel =
-                        it.sharedKoinViewModel<SelectedBookViewModel>(navController)
+                        navBackStackEntry.sharedKoinViewModel<SelectedBookViewModel>(navController)
 
                     LaunchedEffect(true) {
                         selectedBookViewModel.onSelectBook(null)
@@ -50,9 +49,7 @@ fun App(modifier: Modifier = Modifier) {
                         viewModel = viewModel,
                         onBookClick = { book ->
                             selectedBookViewModel.onSelectBook(book)
-                            navController.navigate(
-                                Route.BookDetail(book.id),
-                            )
+                            navController.navigate(Route.BookDetail(book.id))
                         },
                     )
                 }
@@ -67,16 +64,22 @@ fun App(modifier: Modifier = Modifier) {
                             initialOffset
                         }
                     },
-                ) {
+                ) { navBackStackEntry ->
                     val selectedBookViewModel =
-                        it.sharedKoinViewModel<SelectedBookViewModel>(navController = navController)
+                        navBackStackEntry.sharedKoinViewModel<SelectedBookViewModel>(navController = navController)
+                    val viewModel = koinViewModel<BookDetailViewModel>()
                     val selectedBook by selectedBookViewModel.selectedBook.collectAsStateWithLifecycle()
-                    Box(
-                        modifier = modifier.fillMaxSize(),
-                        contentAlignment = Alignment.Center,
-                    ) {
-                        Text("Book details: $selectedBook")
+
+                    LaunchedEffect(selectedBook) {
+                        selectedBook?.let { book ->
+                            viewModel.onAction(BookDetailAction.OnSelectedBookChange(book))
+                        }
                     }
+
+                    BookDetailScreenRoot(
+                        viewModel = viewModel,
+                        onBackClick = { navController.navigateUp() },
+                    )
                 }
             }
         }
