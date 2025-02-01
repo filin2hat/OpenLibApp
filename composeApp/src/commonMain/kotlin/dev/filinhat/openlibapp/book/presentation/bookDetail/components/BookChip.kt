@@ -1,7 +1,10 @@
 package dev.filinhat.openlibapp.book.presentation.bookDetail.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -24,7 +27,7 @@ import dev.filinhat.openlibapp.core.presentation.LightBlue
 fun BookChip(
     modifier: Modifier = Modifier,
     size: ChipSize = ChipSize.REGULAR,
-    chipContent: @Composable () -> Unit,
+    chipContent: @Composable RowScope.() -> Unit,
 ) {
     Box(
         modifier =
@@ -40,6 +43,11 @@ fun BookChip(
                 .padding(vertical = 8.dp, horizontal = 12.dp),
         contentAlignment = Alignment.Center,
     ) {
-        chipContent()
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+        ) {
+            chipContent()
+        }
     }
 }
