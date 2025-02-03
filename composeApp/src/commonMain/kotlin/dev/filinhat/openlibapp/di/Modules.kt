@@ -1,5 +1,8 @@
 package dev.filinhat.openlibapp.di
 
+import androidx.sqlite.driver.bundled.BundledSQLiteDriver
+import dev.filinhat.openlibapp.book.data.database.DatabaseFactory
+import dev.filinhat.openlibapp.book.data.database.FavoriteBookDatabase
 import dev.filinhat.openlibapp.book.data.network.KtorRemoteBookDataSource
 import dev.filinhat.openlibapp.book.data.network.RemoteBookDataSource
 import dev.filinhat.openlibapp.book.data.repository.DefaultBookRepository
@@ -21,6 +24,14 @@ val sharedModule =
         single { HttpClientFactory.create(get()) }
         singleOf(::KtorRemoteBookDataSource).bind<RemoteBookDataSource>()
         singleOf(::DefaultBookRepository).bind<BookRepository>()
+
+        single {
+            get<DatabaseFactory>()
+                .createDatabase()
+                .setDriver(BundledSQLiteDriver())
+                .build()
+        }
+        single { get<FavoriteBookDatabase>().favoriteBookDao }
 
         viewModelOf(::BookListViewModel)
         viewModelOf(::SelectedBookViewModel)
