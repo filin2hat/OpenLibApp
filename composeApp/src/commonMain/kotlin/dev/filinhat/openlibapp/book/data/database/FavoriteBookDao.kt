@@ -8,10 +8,10 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface FavoriteBookDao {
     @Upsert
-    suspend fun upsert(bookEntity: BookEntity)
+    suspend fun upsert(book: BookEntity)
 
     @Query("SELECT * FROM FavoriteBooks")
-    fun geFavoriteBooks(): Flow<List<BookEntity>>
+    fun getFavoriteBooks(): Flow<List<BookEntity>>
 
     @Query("SELECT * FROM FavoriteBooks WHERE id = :id")
     suspend fun getFavoriteBook(id: String): BookEntity?

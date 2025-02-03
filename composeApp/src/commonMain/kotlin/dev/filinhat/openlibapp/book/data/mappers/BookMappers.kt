@@ -52,28 +52,13 @@ fun BookEntity.toBook(): Book =
     Book(
         id = id,
         title = title,
-        imageUrl = imageUrl ?: "",
+        imageUrl = imageUrl,
         authors = authors,
-        description = description ?: "",
+        description = description,
         languages = languages,
         firstPublishYear = firstPublishYear,
         raitingCount = raitingCount,
         numPages = numPagesMedian,
         numEdition = numEdition,
         averageRating = raitingAverage,
-    )
-
-fun SearchedBookDto.toBookEntity(): BookEntity =
-    BookEntity(
-        id = id,
-        title = title,
-        imageUrl = coverKey,
-        authors = authorNames ?: emptyList(),
-        description = "",
-        languages = languages ?: emptyList(),
-        firstPublishYear = firstPublishYear.toString(),
-        raitingCount = raitingCount,
-        numPagesMedian = numPagesMedian,
-        numEdition = editionCount ?: 0,
-        raitingAverage = raitingAverage,
     )
