@@ -1,5 +1,6 @@
 package dev.filinhat.openlibapp.book.data.mappers
 
+import dev.filinhat.openlibapp.book.data.database.BookEntity
 import dev.filinhat.openlibapp.book.data.dto.SearchedBookDto
 import dev.filinhat.openlibapp.book.domain.Book
 
@@ -30,4 +31,49 @@ fun SearchedBookDto.toBook(): Book =
         raitingCount = raitingCount,
         numPages = numPagesMedian ?: 0,
         numEdition = editionCount ?: 0,
+    )
+
+fun Book.toBookEntity(): BookEntity =
+    BookEntity(
+        id = id,
+        title = title,
+        imageUrl = imageUrl,
+        authors = authors,
+        description = description,
+        languages = languages,
+        firstPublishYear = firstPublishYear,
+        raitingCount = raitingCount,
+        numPagesMedian = numPages,
+        numEdition = numEdition,
+        raitingAverage = averageRating,
+    )
+
+fun BookEntity.toBook(): Book =
+    Book(
+        id = id,
+        title = title,
+        imageUrl = imageUrl ?: "",
+        authors = authors,
+        description = description ?: "",
+        languages = languages,
+        firstPublishYear = firstPublishYear,
+        raitingCount = raitingCount,
+        numPages = numPagesMedian,
+        numEdition = numEdition,
+        averageRating = raitingAverage,
+    )
+
+fun SearchedBookDto.toBookEntity(): BookEntity =
+    BookEntity(
+        id = id,
+        title = title,
+        imageUrl = coverKey,
+        authors = authorNames ?: emptyList(),
+        description = "",
+        languages = languages ?: emptyList(),
+        firstPublishYear = firstPublishYear.toString(),
+        raitingCount = raitingCount,
+        numPagesMedian = numPagesMedian,
+        numEdition = editionCount ?: 0,
+        raitingAverage = raitingAverage,
     )
