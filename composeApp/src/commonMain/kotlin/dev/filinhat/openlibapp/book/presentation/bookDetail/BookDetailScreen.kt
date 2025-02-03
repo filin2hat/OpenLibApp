@@ -28,8 +28,8 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BlurredImageBackground
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BookChip
+import dev.filinhat.openlibapp.book.presentation.bookDetail.components.ChipSize
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.TitledContent
-import dev.filinhat.openlibapp.book.presentation.bookDetail.components.enums.ChipSize
 import dev.filinhat.openlibapp.core.presentation.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_description_unavailable
