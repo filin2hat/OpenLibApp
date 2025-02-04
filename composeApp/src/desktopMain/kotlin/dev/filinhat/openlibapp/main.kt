@@ -12,7 +12,7 @@ fun main() {
     application {
         Window(
             onCloseRequest = ::exitApplication,
-            title = "CMP-Bookpedia",
+            title = "OpenLibApp",
         ) {
             App()
         }

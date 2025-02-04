@@ -8,13 +8,14 @@ actual class DatabaseFactory {
     actual fun createDatabase(): RoomDatabase.Builder<FavoriteBookDatabase> {
         val os = System.getProperty("os.name").lowercase()
         val userHome = System.getProperty("user.home")
-        val appDataDir = when {
-            os.contains("win") -> File(System.getenv("APPDATA"), "Bookpedia")
-            os.contains("mac") -> File(userHome, "Library/Application Support/Bookpedia")
-            else -> File(userHome, ".local/share/Bookpedia")
-        }
+        val appDataDir =
+            when {
+                os.contains("win") -> File(System.getenv("APPDATA"), "OpenLibApp")
+                os.contains("mac") -> File(userHome, "Library/Application Support/OpenLibApp")
+                else -> File(userHome, ".local/share/OpenLibApp")
+            }
 
-        if(!appDataDir.exists()) {
+        if (!appDataDir.exists()) {
             appDataDir.mkdirs()
         }
 

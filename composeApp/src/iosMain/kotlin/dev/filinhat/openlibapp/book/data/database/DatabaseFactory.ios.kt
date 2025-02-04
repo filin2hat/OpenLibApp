@@ -17,6 +17,7 @@ actual class DatabaseFactory {
         )
     }
 
+    @OptIn(ExperimentalForeignApi::class)
     private fun documentDirectory(): String {
         val documentDirectory =
             NSFileManager.defaultManager.URLForDirectory(
