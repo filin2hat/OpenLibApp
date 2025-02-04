@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
@@ -38,6 +38,7 @@ import dev.filinhat.openlibapp.book.presentation.bookList.components.BookList
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookSearchBar
 import dev.filinhat.openlibapp.core.presentation.DarkBlue
 import dev.filinhat.openlibapp.core.presentation.DesertWhite
+import dev.filinhat.openlibapp.core.presentation.PulseAnimation
 import dev.filinhat.openlibapp.core.presentation.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.empty_favorites_list
@@ -216,7 +217,12 @@ fun BookListScreen(
                         when (pageIndex) {
                             0 -> {
                                 if (state.isLoading) {
-                                    CircularProgressIndicator()
+                                    PulseAnimation(
+                                        modifier =
+                                            Modifier
+                                                .size(60.dp)
+                                                .align(Alignment.Center),
+                                    )
                                 } else {
                                     when {
                                         state.errorMessage != null -> {

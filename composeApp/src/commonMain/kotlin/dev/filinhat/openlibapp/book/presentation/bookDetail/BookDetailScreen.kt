@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -30,6 +30,7 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BlurredIm
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BookChip
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.ChipSize
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.TitledContent
+import dev.filinhat.openlibapp.core.presentation.PulseAnimation
 import dev.filinhat.openlibapp.core.presentation.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_description_unavailable
@@ -180,8 +181,7 @@ private fun BookDetailScreen(
                 )
 
                 if (state.isLoading) {
-                    CircularProgressIndicator()
-                    // todo add loading synopsis
+                    PulseAnimation(modifier = Modifier.size(60.dp))
                 } else {
                     Text(
                         text =

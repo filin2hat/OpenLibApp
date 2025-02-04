@@ -16,7 +16,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -35,6 +34,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.core.presentation.LightBlue
+import dev.filinhat.openlibapp.core.presentation.PulseAnimation
 import dev.filinhat.openlibapp.core.presentation.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
@@ -93,7 +93,9 @@ fun BookListItem(
                     )
 
                 when (val result = imageLoaderResult) {
-                    null -> CircularProgressIndicator()
+                    null ->
+                        PulseAnimation(modifier = Modifier.size(60.dp))
+
                     else -> {
                         Image(
                             painter = if (result.isSuccess) painter else painterResource(Res.drawable.book_error_2),
