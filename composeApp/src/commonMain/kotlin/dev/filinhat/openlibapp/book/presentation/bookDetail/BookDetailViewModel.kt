@@ -9,6 +9,8 @@ import dev.filinhat.openlibapp.book.domain.BookRepository
 import dev.filinhat.openlibapp.core.domain.onSuccess
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
@@ -30,15 +32,25 @@ class BookDetailViewModel(
     private val _state = MutableStateFlow(BookDetailState())
     val state =
         _state
-            .onStart { fetchBookDescription() }
-            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), _state.value)
+            .onStart {
+                fetchBookDescription()
+                observeFavoriteStatus()
+            }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), _state.value)
 
     private val bookId = savedStateHandle.toRoute<Route.BookDetail>().id
 
     fun onAction(action: BookDetailAction) {
         when (action) {
             is BookDetailAction.OnFavoriteClick -> {
-                // todo
+                viewModelScope.launch {
+                    if (state.value.isFavorite) {
+                        bookRepository.deleteFromFavorites(bookId)
+                    } else {
+                        state.value.book?.let { book ->
+                            bookRepository.markAsFavorite(book)
+                        }
+                    }
+                }
             }
 
             is BookDetailAction.OnSelectedBookChange -> {
@@ -49,6 +61,16 @@ class BookDetailViewModel(
 
             else -> Unit
         }
+    }
+
+    private fun observeFavoriteStatus() {
+        bookRepository
+            .isBookFavorite(bookId)
+            .onEach { isFavorite ->
+                _state.update {
+                    it.copy(isFavorite = isFavorite)
+                }
+            }.launchIn(viewModelScope)
     }
 
     private fun fetchBookDescription() {
