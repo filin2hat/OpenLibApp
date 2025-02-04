@@ -18,3 +18,16 @@
 ## Полезные ссылки
 - Узнайте больше о [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
 - Open Library Web APIs: [ссылка](https://openlibrary.org/developers/api).
+
+## Запуск проекта
+
+### Android
+ - Запуск обычными методами Android Studio.
+
+### Desktop
+ - В терминале выполнить команду `.\gradlew run`.
+
+### iOS
+ - В корне проекта найти папку `/iosApp/iOSApp.xcodeproj/project.xcworkspace` и открыть ее в Xcode.
+ - Выполнить первоначальную компиляцию проекта для устранения проблем с внешними зависимостями.
+ - Запустить проект в Xcode.
