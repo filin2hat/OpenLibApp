@@ -37,10 +37,10 @@ import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
-import dev.filinhat.openlibapp.core.presentation.DarkBlue
-import dev.filinhat.openlibapp.core.presentation.DesertWhite
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.SandYellow
+import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
+import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_cover
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2

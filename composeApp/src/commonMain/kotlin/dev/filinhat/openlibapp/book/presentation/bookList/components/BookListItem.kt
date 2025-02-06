@@ -38,9 +38,9 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import coil3.compose.AsyncImagePainter
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.book.domain.Book
-import dev.filinhat.openlibapp.core.presentation.LightBlue
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.SandYellow
+import dev.filinhat.openlibapp.core.presentation.theme.LightBlue
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
 import org.jetbrains.compose.resources.painterResource

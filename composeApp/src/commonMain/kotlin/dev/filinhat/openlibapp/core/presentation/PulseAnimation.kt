@@ -14,6 +14,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 
 @Composable
 fun PulseAnimation(modifier: Modifier = Modifier) {

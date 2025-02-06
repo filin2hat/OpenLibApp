@@ -36,10 +36,10 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookList
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookSearchBar
-import dev.filinhat.openlibapp.core.presentation.DarkBlue
-import dev.filinhat.openlibapp.core.presentation.DesertWhite
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.SandYellow
+import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
+import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.empty_favorites_list
 import openlibrarycmpapp.composeapp.generated.resources.favorites

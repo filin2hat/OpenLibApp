@@ -2,7 +2,6 @@ package dev.filinhat.openlibapp.app
 
 import androidx.compose.animation.slideInHorizontally
 import androidx.compose.animation.slideOutHorizontally
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -22,11 +21,12 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailViewModel
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListScreenRoot
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListViewModel
 import dev.filinhat.openlibapp.book.presentation.bookList.SelectedBookViewModel
+import dev.filinhat.openlibapp.core.presentation.theme.OpenLibAppTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
 fun App(modifier: Modifier = Modifier) {
-    MaterialTheme {
+    OpenLibAppTheme {
         val navController = rememberNavController()
         NavHost(
             navController = navController,

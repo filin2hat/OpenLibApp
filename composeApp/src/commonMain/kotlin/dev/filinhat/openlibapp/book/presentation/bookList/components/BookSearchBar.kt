@@ -22,9 +22,9 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import dev.filinhat.openlibapp.core.presentation.DarkBlue
-import dev.filinhat.openlibapp.core.presentation.DesertWhite
-import dev.filinhat.openlibapp.core.presentation.SandYellow
+import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
+import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.clear_search_query
 import openlibrarycmpapp.composeapp.generated.resources.search_hint

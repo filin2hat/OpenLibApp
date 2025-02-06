@@ -13,7 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import dev.filinhat.openlibapp.core.presentation.LightBlue
+import dev.filinhat.openlibapp.core.presentation.theme.LightBlue
 
 /**
  * Компонент чипа для отображения информации.

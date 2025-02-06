@@ -31,7 +31,7 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BookChip
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.ChipSize
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.TitledContent
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.SandYellow
+import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_description_unavailable
 import openlibrarycmpapp.composeapp.generated.resources.book_languages
