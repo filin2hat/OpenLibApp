@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -137,7 +138,7 @@ fun BookListItem(
                 Text(
                     text = book.title,
                     style = MaterialTheme.typography.titleMedium,
-                    maxLines = 2,
+                    maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
 
@@ -149,22 +150,31 @@ fun BookListItem(
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
+                book.firstPublishYear?.let { firstPublishYear ->
+                    Text(
+                        text = firstPublishYear,
+                        style = MaterialTheme.typography.titleSmall,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
                 book.averageRating?.let { avagRating ->
 
                     Row(
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
+                        Icon(
+                            imageVector = Icons.Default.Star,
+                            contentDescription = null,
+                            tint = SandYellow,
+                            modifier = Modifier.offset(y = (-1).dp),
+                        )
                         Text(
                             text = "${round(avagRating * 10) / 10.0}",
                             style = MaterialTheme.typography.bodyMedium,
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
-                        )
-
-                        Icon(
-                            imageVector = Icons.Default.Star,
-                            contentDescription = null,
-                            tint = SandYellow,
+                            modifier = Modifier.padding(start = 4.dp),
                         )
                     }
                 }

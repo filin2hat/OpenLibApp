@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -132,6 +133,10 @@ private fun BookDetailScreen(
                                     imageVector = Icons.Default.Star,
                                     contentDescription = null,
                                     tint = MaterialTheme.colorScheme.primary,
+                                    modifier =
+                                        Modifier
+                                            .padding(start = 4.dp)
+                                            .offset(y = (-1).dp),
                                 )
                             }
                         }
@@ -150,41 +155,18 @@ private fun BookDetailScreen(
                         }
                     }
                 }
-
-                if (state.book.languages.isNotEmpty()) {
-                    TitledContent(
-                        title = stringResource(Res.string.book_languages),
-                        modifier = Modifier.padding(vertical = 8.dp),
-                    ) {
-                        FlowRow(
-                            horizontalArrangement = Arrangement.Center,
-                            modifier = Modifier.wrapContentSize(Alignment.Center),
-                        ) {
-                            state.book.languages.forEach { language ->
-                                BookChip(
-                                    size = ChipSize.SMALL,
-                                    modifier = Modifier.padding(2.dp),
-                                ) {
-                                    Text(
-                                        text = language.uppercase(),
-                                        style = MaterialTheme.typography.bodyMedium,
-                                        color = MaterialTheme.colorScheme.primary,
-                                    )
-                                }
-                            }
-                        }
-                    }
+                if (state.book.description.isNotBlank()) {
+                    Text(
+                        text = stringResource(Res.string.book_synopsis),
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier =
+                            Modifier
+                                .align(Alignment.Start)
+                                .fillMaxWidth()
+                                .padding(top = 24.dp, bottom = 8.dp),
+                    )
                 }
-                Text(
-                    text = stringResource(Res.string.book_synopsis),
-                    style = MaterialTheme.typography.titleLarge,
-                    color = MaterialTheme.colorScheme.onSurface,
-                    modifier =
-                        Modifier
-                            .align(Alignment.Start)
-                            .fillMaxWidth()
-                            .padding(top = 24.dp, bottom = 8.dp),
-                )
 
                 if (state.isLoading) {
                     PulseAnimation(modifier = Modifier.size(60.dp))
@@ -199,6 +181,31 @@ private fun BookDetailScreen(
                         color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(vertical = 8.dp),
                     )
+                }
+
+                if (state.book.languages.isNotEmpty()) {
+                    TitledContent(
+                        title = stringResource(Res.string.book_languages),
+                        modifier = Modifier.padding(vertical = 6.dp),
+                    ) {
+                        FlowRow(
+                            horizontalArrangement = Arrangement.Center,
+                            modifier = Modifier.wrapContentSize(Alignment.Center),
+                        ) {
+                            state.book.languages.forEach { language ->
+                                BookChip(
+                                    size = ChipSize.SMALL,
+                                    modifier = Modifier.padding(2.dp),
+                                ) {
+                                    Text(
+                                        text = language.uppercase(),
+                                        style = MaterialTheme.typography.labelSmall,
+                                        color = MaterialTheme.colorScheme.primary,
+                                    )
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

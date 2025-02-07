@@ -34,12 +34,12 @@ fun BookChip(
                 .widthIn(
                     min =
                         when (size) {
-                            ChipSize.SMALL -> 50.dp
-                            ChipSize.REGULAR -> 80.dp
+                            ChipSize.SMALL -> 45.dp
+                            ChipSize.REGULAR -> 70.dp
                         },
                 ).clip(RoundedCornerShape(16.dp))
                 .background(MaterialTheme.colorScheme.surfaceContainer)
-                .padding(vertical = 8.dp, horizontal = 12.dp),
+                .padding(vertical = 4.dp, horizontal = 4.dp),
         contentAlignment = Alignment.Center,
     ) {
         Row(
