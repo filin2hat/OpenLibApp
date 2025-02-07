@@ -6,7 +6,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
@@ -25,7 +24,7 @@ import dev.filinhat.openlibapp.core.presentation.theme.OpenLibAppTheme
 import org.koin.compose.viewmodel.koinViewModel
 
 @Composable
-fun App(modifier: Modifier = Modifier) {
+fun App() {
     OpenLibAppTheme {
         val navController = rememberNavController()
         NavHost(

@@ -39,7 +39,6 @@ import coil3.compose.AsyncImagePainter
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.LightBlue
 import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
@@ -63,7 +62,7 @@ fun BookListItem(
 ) {
     Surface(
         shape = RoundedCornerShape(32.dp),
-        color = LightBlue.copy(alpha = 0.2f),
+        color = MaterialTheme.colorScheme.surfaceBright,
         modifier = modifier.clickable(onClick = onClick),
     ) {
         Row(

@@ -9,12 +9,12 @@ import androidx.compose.animation.core.tween
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 
 @Composable
 fun PulseAnimation(modifier: Modifier = Modifier) {
@@ -37,7 +37,7 @@ fun PulseAnimation(modifier: Modifier = Modifier) {
                     alpha = 1f - progress
                 }.border(
                     width = 5.dp,
-                    color = SandYellow,
+                    color = MaterialTheme.colorScheme.primary,
                     shape = CircleShape,
                 ),
     )

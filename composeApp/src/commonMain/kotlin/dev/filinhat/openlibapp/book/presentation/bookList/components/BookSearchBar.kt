@@ -22,9 +22,6 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
-import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.clear_search_query
 import openlibrarycmpapp.composeapp.generated.resources.search_hint
@@ -48,8 +45,8 @@ fun BookSearchBar(
     CompositionLocalProvider(
         LocalTextSelectionColors provides
             TextSelectionColors(
-                handleColor = SandYellow,
-                backgroundColor = SandYellow,
+                handleColor = MaterialTheme.colorScheme.primary,
+                backgroundColor = MaterialTheme.colorScheme.primary,
             ),
     ) {
         OutlinedTextField(
@@ -58,8 +55,9 @@ fun BookSearchBar(
             shape = RoundedCornerShape(100),
             colors =
                 OutlinedTextFieldDefaults.colors(
-                    focusedBorderColor = SandYellow,
-                    cursorColor = DarkBlue,
+                    focusedBorderColor = MaterialTheme.colorScheme.primary,
+                    unfocusedBorderColor = MaterialTheme.colorScheme.background,
+                    cursorColor = MaterialTheme.colorScheme.onPrimary,
                 ),
             placeholder = {
                 Text(text = stringResource(Res.string.search_hint))
@@ -105,7 +103,7 @@ fun BookSearchBar(
                     .minimumInteractiveComponentSize()
                     .background(
                         shape = RoundedCornerShape(100),
-                        color = DesertWhite,
+                        color = MaterialTheme.colorScheme.surfaceVariant,
                     ),
         )
     }

@@ -8,12 +8,12 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.unit.dp
-import dev.filinhat.openlibapp.core.presentation.theme.LightBlue
 
 /**
  * Компонент чипа для отображения информации.
@@ -38,7 +38,7 @@ fun BookChip(
                             ChipSize.REGULAR -> 80.dp
                         },
                 ).clip(RoundedCornerShape(16.dp))
-                .background(LightBlue)
+                .background(MaterialTheme.colorScheme.surfaceContainer)
                 .padding(vertical = 8.dp, horizontal = 12.dp),
         contentAlignment = Alignment.Center,
     ) {

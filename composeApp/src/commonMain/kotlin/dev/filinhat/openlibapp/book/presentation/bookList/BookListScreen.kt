@@ -28,7 +28,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -37,9 +36,6 @@ import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookList
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookSearchBar
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
-import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.empty_favorites_list
 import openlibrarycmpapp.composeapp.generated.resources.favorites
@@ -115,9 +111,9 @@ fun BookListScreen(
 
     Column(
         modifier =
-            Modifier
+            modifier
                 .fillMaxSize()
-                .background(DarkBlue)
+                .background(MaterialTheme.colorScheme.background)
                 .statusBarsPadding(),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -142,7 +138,7 @@ fun BookListScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .padding(16.dp),
-            color = DesertWhite,
+            color = MaterialTheme.colorScheme.surfaceVariant,
             shape =
                 RoundedCornerShape(
                     topStart = 32.dp,
@@ -159,11 +155,11 @@ fun BookListScreen(
                             .padding(vertical = 12.dp)
                             .widthIn(max = 700.dp)
                             .fillMaxWidth(),
-                    containerColor = DesertWhite,
-                    contentColor = SandYellow,
+                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
                     indicator = { tabPositions ->
                         TabRowDefaults.SecondaryIndicator(
-                            color = SandYellow,
+                            color = MaterialTheme.colorScheme.primary,
                             modifier =
                                 Modifier
                                     .tabIndicatorOffset(tabPositions[state.selectedTabIndex]),
@@ -176,8 +172,8 @@ fun BookListScreen(
                             onAction(BookListAction.OnTabSelected(0))
                         },
                         modifier = Modifier.weight(1f),
-                        selectedContentColor = SandYellow,
-                        unselectedContentColor = Color.Black.copy(alpha = 0.5f),
+                        selectedContentColor = MaterialTheme.colorScheme.primary,
+                        unselectedContentColor = MaterialTheme.colorScheme.inversePrimary,
                     ) {
                         Text(
                             text = stringResource(Res.string.search_results),
@@ -191,8 +187,8 @@ fun BookListScreen(
                             onAction(BookListAction.OnTabSelected(1))
                         },
                         modifier = Modifier.weight(1f),
-                        selectedContentColor = SandYellow,
-                        unselectedContentColor = Color.Black.copy(alpha = 0.5f),
+                        selectedContentColor = MaterialTheme.colorScheme.primary,
+                        unselectedContentColor = MaterialTheme.colorScheme.inversePrimary,
                     ) {
                         Text(
                             text = stringResource(Res.string.favorites),

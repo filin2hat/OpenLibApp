@@ -22,7 +22,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -31,7 +30,6 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BookChip
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.ChipSize
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.TitledContent
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_description_unavailable
 import openlibrarycmpapp.composeapp.generated.resources.book_languages
@@ -108,11 +106,13 @@ private fun BookDetailScreen(
                     text = state.book.title,
                     style = MaterialTheme.typography.headlineSmall,
                     textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
                 Text(
                     text = state.book.authors.joinToString(" ,"),
                     style = MaterialTheme.typography.titleMedium,
                     textAlign = TextAlign.Center,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
 
                 Row(
@@ -126,11 +126,12 @@ private fun BookDetailScreen(
                             BookChip {
                                 Text(
                                     text = "${round(raiting * 10) / 10.0}",
+                                    color = MaterialTheme.colorScheme.primary,
                                 )
                                 Icon(
                                     imageVector = Icons.Default.Star,
                                     contentDescription = null,
-                                    tint = SandYellow,
+                                    tint = MaterialTheme.colorScheme.primary,
                                 )
                             }
                         }
@@ -141,7 +142,10 @@ private fun BookDetailScreen(
                             title = stringResource(Res.string.book_pages),
                         ) {
                             BookChip {
-                                Text(text = pageCount.toString())
+                                Text(
+                                    text = pageCount.toString(),
+                                    color = MaterialTheme.colorScheme.primary,
+                                )
                             }
                         }
                     }
@@ -164,6 +168,7 @@ private fun BookDetailScreen(
                                     Text(
                                         text = language.uppercase(),
                                         style = MaterialTheme.typography.bodyMedium,
+                                        color = MaterialTheme.colorScheme.primary,
                                     )
                                 }
                             }
@@ -173,6 +178,7 @@ private fun BookDetailScreen(
                 Text(
                     text = stringResource(Res.string.book_synopsis),
                     style = MaterialTheme.typography.titleLarge,
+                    color = MaterialTheme.colorScheme.onSurface,
                     modifier =
                         Modifier
                             .align(Alignment.Start)
@@ -190,7 +196,7 @@ private fun BookDetailScreen(
                             },
                         style = MaterialTheme.typography.bodyMedium,
                         textAlign = TextAlign.Justify,
-                        color = if (state.book.description.isBlank()) Color.Black.copy(alpha = 0.4f) else Color.Black,
+                        color = MaterialTheme.colorScheme.onSurface,
                         modifier = Modifier.padding(vertical = 8.dp),
                     )
                 }

@@ -23,6 +23,7 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -38,9 +39,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.DarkBlue
 import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_cover
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
@@ -84,7 +83,7 @@ fun BlurredImageBackground(
                     Modifier
                         .weight(0.3f)
                         .fillMaxWidth()
-                        .background(DarkBlue),
+                        .background(MaterialTheme.colorScheme.background),
             ) {
                 imageLoadResult?.getOrNull()?.let { painter ->
                     Image(
@@ -104,7 +103,7 @@ fun BlurredImageBackground(
                     Modifier
                         .weight(0.7f)
                         .fillMaxWidth()
-                        .background(DesertWhite),
+                        .background(MaterialTheme.colorScheme.surfaceVariant),
             ) {
             }
         }
@@ -173,8 +172,8 @@ fun BlurredImageBackground(
                                             .background(
                                                 brush =
                                                     Brush.radialGradient(
-                                                        colors = listOf(SandYellow, Color.Transparent),
-                                                        radius = 70f,
+                                                        colors = listOf(MaterialTheme.colorScheme.tertiary, Color.Transparent),
+                                                        radius = 80f,
                                                     ),
                                             ),
                                 ) {
@@ -188,7 +187,7 @@ fun BlurredImageBackground(
                                                     Res.string.btn_mark_as_favorite,
                                                 )
                                             },
-                                        tint = Color.Red,
+                                        tint = MaterialTheme.colorScheme.tertiary,
                                     )
                                 }
                             }
