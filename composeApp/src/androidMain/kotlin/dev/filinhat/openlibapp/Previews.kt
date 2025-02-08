@@ -18,6 +18,7 @@ private fun BookSearchBarEmptyPreview(modifier: Modifier = Modifier) {
         BookSearchBar(
             searchQuery = "",
             onSearchQueryChange = {},
+            onClearSearchResults = {},
             onImeSearch = {},
             modifier =
                 Modifier
@@ -33,6 +34,7 @@ private fun BookSearchBarNotEmptyPreview(modifier: Modifier = Modifier) {
         BookSearchBar(
             searchQuery = "Search query",
             onSearchQueryChange = {},
+            onClearSearchResults = {},
             onImeSearch = {},
             modifier =
                 Modifier

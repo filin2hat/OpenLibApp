@@ -122,6 +122,9 @@ fun BookListScreen(
             onSearchQueryChange = {
                 onAction(BookListAction.OnSearchQueryChange(it))
             },
+            onClearSearchResults = {
+                onAction(BookListAction.OnClearSearchResults)
+            },
             onImeSearch = {
                 keyboardController?.hide()
             },

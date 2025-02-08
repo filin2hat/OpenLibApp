@@ -64,6 +64,10 @@ class BookListViewModel(
                     bookListState.copy(selectedTabIndex = action.index)
                 }
             }
+
+            BookListAction.OnClearSearchResults -> {
+                clearSearchResults()
+            }
         }
     }
 
@@ -159,4 +163,13 @@ class BookListViewModel(
                     }
                 }
         }
+
+    private fun clearSearchResults() {
+        getTop50BooksJob?.cancel()
+        searchJob?.cancel()
+        observeFavoriteBookJob?.cancel()
+        cachedBooks = emptyList()
+        _state.update { it.copy(searchResults = cachedBooks) }
+        observeTop50Books()
+    }
 }

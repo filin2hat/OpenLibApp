@@ -35,4 +35,9 @@ sealed interface BookListAction {
     data class OnTabSelected(
         val index: Int,
     ) : BookListAction
+
+    /**
+     * Очистка результатов поиска.
+     */
+    data object OnClearSearchResults : BookListAction
 }

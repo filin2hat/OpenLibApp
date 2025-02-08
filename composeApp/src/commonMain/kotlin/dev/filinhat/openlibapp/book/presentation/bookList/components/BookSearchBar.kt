@@ -40,6 +40,7 @@ import org.jetbrains.compose.resources.stringResource
 fun BookSearchBar(
     searchQuery: String,
     onSearchQueryChange: (String) -> Unit,
+    onClearSearchResults: () -> Unit,
     onImeSearch: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -89,6 +90,7 @@ fun BookSearchBar(
                     IconButton(
                         onClick = {
                             onSearchQueryChange("")
+                            onClearSearchResults()
                         },
                     ) {
                         Icon(
