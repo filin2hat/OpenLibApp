@@ -22,6 +22,7 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.unit.dp
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.clear_search_query
 import openlibrarycmpapp.composeapp.generated.resources.search_hint
@@ -52,7 +53,7 @@ fun BookSearchBar(
         OutlinedTextField(
             value = searchQuery,
             onValueChange = onSearchQueryChange,
-            shape = RoundedCornerShape(100),
+            shape = RoundedCornerShape(32.dp),
             colors =
                 OutlinedTextFieldDefaults.colors(
                     focusedBorderColor = MaterialTheme.colorScheme.primary,

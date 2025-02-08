@@ -30,6 +30,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
@@ -61,14 +62,14 @@ fun BookListItem(
     modifier: Modifier = Modifier,
 ) {
     Surface(
-        shape = RoundedCornerShape(32.dp),
+        shape = RoundedCornerShape(16.dp),
         color = MaterialTheme.colorScheme.surfaceBright,
         modifier = modifier.clickable(onClick = onClick),
     ) {
         Row(
             modifier =
                 Modifier
-                    .padding(16.dp)
+                    .padding(horizontal = 16.dp, vertical = 12.dp)
                     .fillMaxWidth()
                     .height(IntrinsicSize.Min),
             verticalAlignment = Alignment.CenterVertically,
@@ -121,7 +122,7 @@ fun BookListItem(
                                         val scale = 0.8f + (0.2f * transition)
                                         scaleX = scale
                                         scaleY = scale
-                                    },
+                                    }.clip(RoundedCornerShape(8.dp)),
                         )
                     }
                 }

@@ -37,10 +37,10 @@ import dev.filinhat.openlibapp.book.presentation.bookList.components.BookList
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookSearchBar
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
 import openlibrarycmpapp.composeapp.generated.resources.Res
+import openlibrarycmpapp.composeapp.generated.resources.books_list
 import openlibrarycmpapp.composeapp.generated.resources.empty_favorites_list
 import openlibrarycmpapp.composeapp.generated.resources.favorites
 import openlibrarycmpapp.composeapp.generated.resources.no_results
-import openlibrarycmpapp.composeapp.generated.resources.search_results
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 
@@ -129,7 +129,7 @@ fun BookListScreen(
                 Modifier
                     .widthIn(max = 400.dp)
                     .fillMaxWidth()
-                    .padding(16.dp),
+                    .padding(horizontal = 8.dp),
         )
 
         Surface(
@@ -176,7 +176,7 @@ fun BookListScreen(
                         unselectedContentColor = MaterialTheme.colorScheme.inversePrimary,
                     ) {
                         Text(
-                            text = stringResource(Res.string.search_results),
+                            text = stringResource(Res.string.books_list),
                             modifier = Modifier.padding(vertical = 12.dp),
                         )
                     }
