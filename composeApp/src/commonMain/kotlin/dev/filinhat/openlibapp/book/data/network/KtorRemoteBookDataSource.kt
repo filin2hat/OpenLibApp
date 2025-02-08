@@ -5,6 +5,7 @@ import dev.filinhat.openlibapp.book.data.dto.SearchResponseDto
 import dev.filinhat.openlibapp.core.data.network.safeCall
 import dev.filinhat.openlibapp.core.domain.DataError
 import dev.filinhat.openlibapp.core.domain.Result
+import dev.filinhat.openlibapp.core.utils.getCurrentYear
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
@@ -42,10 +43,11 @@ class KtorRemoteBookDataSource(
 
     override suspend fun searchTop50BooksInCurrentYear(): Result<SearchResponseDto, DataError.Remote> =
         safeCall<SearchResponseDto> {
+            val currentYear = getCurrentYear()
             httpClient.get(
                 urlString = "$BASE_URL/search.json",
             ) {
-                parameter("q", "first_publish_year:[2025 TO 2025]")
+                parameter("q", "first_publish_year:[$currentYear TO $currentYear]")
                 parameter("sort", "rating desc")
                 parameter("limit", 50)
                 parameter("language", "eng")
