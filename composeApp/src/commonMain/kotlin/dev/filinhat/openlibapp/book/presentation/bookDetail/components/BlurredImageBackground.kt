@@ -39,7 +39,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.DesertWhite
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_cover
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
@@ -119,7 +118,7 @@ fun BlurredImageBackground(
             Icon(
                 imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                 contentDescription = stringResource(Res.string.btn_go_back),
-                tint = DesertWhite,
+                tint = MaterialTheme.colorScheme.primary,
             )
         }
 

@@ -125,18 +125,16 @@ private fun BookDetailScreen(
                             title = stringResource(Res.string.book_raiting),
                         ) {
                             BookChip {
-                                Text(
-                                    text = "${round(raiting * 10) / 10.0}",
-                                    color = MaterialTheme.colorScheme.primary,
-                                )
                                 Icon(
                                     imageVector = Icons.Default.Star,
                                     contentDescription = null,
                                     tint = MaterialTheme.colorScheme.primary,
-                                    modifier =
-                                        Modifier
-                                            .padding(start = 4.dp)
-                                            .offset(y = (-1).dp),
+                                    modifier = Modifier.offset(y = (-1).dp),
+                                )
+                                Text(
+                                    text = "${round(raiting * 10) / 10.0}",
+                                    color = MaterialTheme.colorScheme.primary,
+                                    modifier = Modifier.padding(start = 4.dp, end = 8.dp),
                                 )
                             }
                         }

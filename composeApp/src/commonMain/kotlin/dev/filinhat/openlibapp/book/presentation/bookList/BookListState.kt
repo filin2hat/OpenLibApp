@@ -14,7 +14,7 @@ import dev.filinhat.openlibapp.core.presentation.UiText
  * @property errorMessage Текст сообщения об ошибке.
  */
 data class BookListState(
-    val searchQuery: String = "requiem for dream",
+    val searchQuery: String = "",
     val searchResults: List<Book> = emptyList(),
     val favoriteBooks: List<Book> = emptyList(),
     val isLoading: Boolean = true,

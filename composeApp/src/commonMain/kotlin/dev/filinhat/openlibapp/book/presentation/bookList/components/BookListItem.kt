@@ -40,7 +40,6 @@ import coil3.compose.AsyncImagePainter
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import dev.filinhat.openlibapp.core.presentation.theme.SandYellow
 import openlibrarycmpapp.composeapp.generated.resources.Res
 import openlibrarycmpapp.composeapp.generated.resources.book_error_2
 import org.jetbrains.compose.resources.painterResource
@@ -166,7 +165,7 @@ fun BookListItem(
                         Icon(
                             imageVector = Icons.Default.Star,
                             contentDescription = null,
-                            tint = SandYellow,
+                            tint = MaterialTheme.colorScheme.primary,
                             modifier = Modifier.offset(y = (-1).dp),
                         )
                         Text(
