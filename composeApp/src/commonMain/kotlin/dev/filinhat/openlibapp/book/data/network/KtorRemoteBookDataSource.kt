@@ -40,6 +40,22 @@ class KtorRemoteBookDataSource(
             }
         }
 
+    override suspend fun searchTop50BooksInCurrentYear(): Result<SearchResponseDto, DataError.Remote> =
+        safeCall<SearchResponseDto> {
+            httpClient.get(
+                urlString = "$BASE_URL/search.json",
+            ) {
+                parameter("q", "first_publish_year:[2025 TO 2025]")
+                parameter("sort", "rating desc")
+                parameter("limit", 50)
+                parameter("language", "eng")
+                parameter(
+                    "fields",
+                    "key,title,language,cover_edition_key,cover_i,author_key,author_name,first_publish_year,ratings_average,ratings_count,number_of_pages_median,edition_count",
+                )
+            }
+        }
+
     override suspend fun getBookDetails(bookWorkId: String): Result<BookWorkDto, DataError.Remote> =
         safeCall<BookWorkDto> {
             httpClient.get(

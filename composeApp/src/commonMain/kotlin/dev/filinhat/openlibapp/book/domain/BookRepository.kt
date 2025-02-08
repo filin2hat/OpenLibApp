@@ -24,6 +24,17 @@ interface BookRepository {
     suspend fun searchBooks(query: String): Result<List<Book>, DataError.Remote>
 
     /**
+     * Выполняет поиск 50 популярных книг в текущем году.
+     *
+     * @param query Поисковый запрос.
+     * @return `Result` со списком объектов [Book], соответствующих запросу,
+     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
+     * @see Book
+     * @see DataError.Remote
+     */
+    suspend fun searchTop50BooksInCurrentYear(): Result<List<Book>, DataError.Remote>
+
+    /**
      * Получает описание книги по её идентификатору.
      *
      * @param bookId Идентификатор книги.

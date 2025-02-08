@@ -27,6 +27,14 @@ interface RemoteBookDataSource {
     ): Result<SearchResponseDto, DataError.Remote>
 
     /**
+     * Выполняет поиск 50 популярных книг в текущем году.
+     *
+     * @return `Result` с объектом [SearchedBookDto], содержащим результаты поиска,
+     *         или с ошибкой типа [DataError.Remote] в случае неудачи.
+     */
+    suspend fun searchTop50BooksInCurrentYear(): Result<SearchResponseDto, DataError.Remote>
+
+    /**
      * Получает детальную информацию о произведении (книге) по его идентификатору.
      *
      * @param bookWorkId Идентификатор произведения (книги).

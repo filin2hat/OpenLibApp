@@ -34,6 +34,13 @@ class DefaultBookRepository(
                 searchResponseDto.results.map { it.toBook() }
             }
 
+    override suspend fun searchTop50BooksInCurrentYear(): Result<List<Book>, DataError.Remote> =
+        remoteBookDataSource
+            .searchTop50BooksInCurrentYear()
+            .map { searchResponseDto ->
+                searchResponseDto.results.map { it.toBook() }
+            }
+
     override suspend fun getBookDescription(bookId: String): Result<String?, DataError> {
         val localResult = favoriteBookDao.getFavoriteBook(bookId)
         return if (localResult == null) {
