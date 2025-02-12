@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.core.presentation.theme
+package dev.filinhat.openlibapp.book.presentation.theme
 
 import android.app.Activity
 import androidx.compose.runtime.Composable

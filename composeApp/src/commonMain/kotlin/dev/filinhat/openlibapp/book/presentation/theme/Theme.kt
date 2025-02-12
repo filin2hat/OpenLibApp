@@ -38,6 +38,7 @@ private val DarkColors =
         background = backgroundAppDark,
     )
 
+@Suppress("ktlint:compose:compositionlocal-allowlist")
 internal val LocalThemeIsDark = compositionLocalOf { mutableStateOf(true) }
 
 @Composable
@@ -55,6 +56,3 @@ internal fun OpenLibAppTheme(content: @Composable () -> Unit) {
         )
     }
 }
-
-@Composable
-internal expect fun SystemAppearance(isDark: Boolean)
