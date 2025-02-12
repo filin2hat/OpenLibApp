@@ -17,8 +17,14 @@ import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
+/**
+ * Модуль, содержащий зависимости, специфичные для платформы
+ */
 expect val platformModule: Module
 
+/**
+ * Модуль, содержащий зависимости, которые не зависят от платформы
+ */
 val sharedModule =
     module {
         single { HttpClientFactory.create(get()) }
