@@ -25,7 +25,7 @@ compose-plugin = "1.7.0"
 kotlin = "2.1.10"
 ksp = "2.1.10-1.0.29"
 kotlinSerialization = "1.8.0"
-kotlinx-coroutines = "1.9.0"
+kotlinx-coroutines = "1.10.1"
 
 # Navigation
 navigationCompose = "2.8.0-alpha12"
@@ -34,10 +34,10 @@ navigationCompose = "2.8.0-alpha12"
 koin = "4.0.2"
 
 # Networking
-ktor = "3.0.1"
+ktor = "3.0.3"
 
 # Image loader
-coil3 = "3.0.4"
+coil3 = "3.1.0"
 
 #Data base
 sqlite = "2.5.0-alpha13"
