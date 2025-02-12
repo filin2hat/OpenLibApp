@@ -5,6 +5,11 @@ import androidx.room.Query
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
+/**
+ * DAO для работы с избранными книгами.
+ *
+ * Предоставляет методы для добавления, удаления и получения избранных книг.
+ */
 @Dao
 interface FavoriteBookDao {
     @Upsert

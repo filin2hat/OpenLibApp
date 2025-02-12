@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.core.utils
+package dev.filinhat.openlibapp.core.common
 
 import java.util.Calendar
 

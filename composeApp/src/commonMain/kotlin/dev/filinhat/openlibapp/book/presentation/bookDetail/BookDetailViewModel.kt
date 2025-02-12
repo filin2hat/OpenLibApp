@@ -4,9 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
-import dev.filinhat.openlibapp.app.Route
 import dev.filinhat.openlibapp.book.domain.BookRepository
 import dev.filinhat.openlibapp.core.domain.onSuccess
+import dev.filinhat.openlibapp.navigation.OpenLibRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.launchIn
@@ -37,7 +37,7 @@ class BookDetailViewModel(
                 observeFavoriteStatus()
             }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000L), _state.value)
 
-    private val bookId = savedStateHandle.toRoute<Route.BookDetail>().id
+    private val bookId = savedStateHandle.toRoute<OpenLibRoute.BookDetail>().id
 
     fun onAction(action: BookDetailAction) {
         when (action) {

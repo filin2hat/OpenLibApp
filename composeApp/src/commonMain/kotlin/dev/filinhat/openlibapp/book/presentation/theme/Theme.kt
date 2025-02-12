@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.core.presentation.theme
+package dev.filinhat.openlibapp.book.presentation.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

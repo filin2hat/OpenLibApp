@@ -16,6 +16,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 
+/**
+ * Компонент анимации пульсации.
+ *
+ * @param modifier Модификатор для настройки внешнего вида компонента.
+ */
 @Composable
 fun PulseAnimation(modifier: Modifier = Modifier) {
     val transition = rememberInfiniteTransition()

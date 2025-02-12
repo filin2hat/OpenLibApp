@@ -48,6 +48,16 @@ import openlibapp.composeapp.generated.resources.btn_remove_from_favorites
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
+/**
+ * Компонент фона с картинкой книги.
+ *
+ * @param imageUrl Ссылка на изображение книги.
+ * @param isFavorite Флаг, показывающий наличие книги в избранном.
+ * @param onFavoriteClick Обработчик нажатия на кнопку "Добавить в избранное".
+ * @param onBackClick Обработчик нажатия на кнопку "Назад".
+ * @param modifier Модификатор для настройки внешнего вида компонента.
+ * @param content Содержимое компонента.
+ */
 @Composable
 fun BlurredImageBackground(
     imageUrl: String?,
@@ -121,7 +131,7 @@ fun BlurredImageBackground(
                                 Brush.radialGradient(
                                     colors =
                                         listOf(
-                                            MaterialTheme.colorScheme.primary.copy(alpha = 0.65f),
+                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
                                             Color.Transparent,
                                         ),
                                     radius = 60f,
@@ -131,7 +141,7 @@ fun BlurredImageBackground(
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                     contentDescription = stringResource(Res.string.btn_go_back),
-                    tint = MaterialTheme.colorScheme.secondary,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier = Modifier.size(36.dp),
                 )
             }
@@ -147,7 +157,7 @@ fun BlurredImageBackground(
                                 Brush.radialGradient(
                                     colors =
                                         listOf(
-                                            MaterialTheme.colorScheme.primary.copy(alpha = 0.65f),
+                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
                                             Color.Transparent,
                                         ),
                                     radius = 60f,
@@ -164,7 +174,7 @@ fun BlurredImageBackground(
                                 Res.string.btn_mark_as_favorite,
                             )
                         },
-                    tint = MaterialTheme.colorScheme.secondary,
+                    tint = MaterialTheme.colorScheme.primary,
                     modifier =
                         Modifier
                             .size(32.dp),

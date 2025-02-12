@@ -5,6 +5,9 @@ import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 
+/**
+ * База данных для избранных книг.
+ */
 @Database(
     entities = [BookEntity::class],
     version = 1,

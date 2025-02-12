@@ -12,6 +12,9 @@ import openlibapp.composeapp.generated.resources.error_too_many_requests
 import openlibapp.composeapp.generated.resources.error_unknown_local
 import openlibapp.composeapp.generated.resources.error_unknown_remote
 
+/**
+ * Конвертирует [DataError] в [UiText].
+ */
 fun DataError.toUiText(): UiText {
     val string =
         when (this) {

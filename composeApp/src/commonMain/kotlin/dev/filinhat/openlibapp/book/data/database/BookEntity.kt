@@ -3,6 +3,9 @@ package dev.filinhat.openlibapp.book.data.database
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
+/**
+ * Таблица с книгами в избранном.
+ */
 @Entity(tableName = "FavoriteBooks")
 data class BookEntity(
     @PrimaryKey(autoGenerate = false) val id: String,
