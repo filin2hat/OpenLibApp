@@ -31,12 +31,12 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.components.BookChip
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.ChipSize
 import dev.filinhat.openlibapp.book.presentation.bookDetail.components.TitledContent
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import openlibrarycmpapp.composeapp.generated.resources.Res
-import openlibrarycmpapp.composeapp.generated.resources.book_description_unavailable
-import openlibrarycmpapp.composeapp.generated.resources.book_languages
-import openlibrarycmpapp.composeapp.generated.resources.book_pages
-import openlibrarycmpapp.composeapp.generated.resources.book_raiting
-import openlibrarycmpapp.composeapp.generated.resources.book_synopsis
+import openlibapp.composeapp.generated.resources.Res
+import openlibapp.composeapp.generated.resources.book_description_unavailable
+import openlibapp.composeapp.generated.resources.book_languages
+import openlibapp.composeapp.generated.resources.book_pages
+import openlibapp.composeapp.generated.resources.book_raiting
+import openlibapp.composeapp.generated.resources.book_synopsis
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.round
 

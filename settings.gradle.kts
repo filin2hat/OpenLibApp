@@ -1,4 +1,4 @@
-rootProject.name = "OpenLibraryCMPApp"
+rootProject.name = "OpenLibApp"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

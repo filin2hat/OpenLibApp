@@ -1,16 +1,16 @@
 package dev.filinhat.openlibapp.core.presentation
 
 import dev.filinhat.openlibapp.core.domain.DataError
-import openlibrarycmpapp.composeapp.generated.resources.Res
-import openlibrarycmpapp.composeapp.generated.resources.error_disk_full
-import openlibrarycmpapp.composeapp.generated.resources.error_no_data
-import openlibrarycmpapp.composeapp.generated.resources.error_no_internet_connection
-import openlibrarycmpapp.composeapp.generated.resources.error_request_timeout
-import openlibrarycmpapp.composeapp.generated.resources.error_serialization
-import openlibrarycmpapp.composeapp.generated.resources.error_server
-import openlibrarycmpapp.composeapp.generated.resources.error_too_many_requests
-import openlibrarycmpapp.composeapp.generated.resources.error_unknown_local
-import openlibrarycmpapp.composeapp.generated.resources.error_unknown_remote
+import openlibapp.composeapp.generated.resources.Res
+import openlibapp.composeapp.generated.resources.error_disk_full
+import openlibapp.composeapp.generated.resources.error_no_data
+import openlibapp.composeapp.generated.resources.error_no_internet_connection
+import openlibapp.composeapp.generated.resources.error_request_timeout
+import openlibapp.composeapp.generated.resources.error_serialization
+import openlibapp.composeapp.generated.resources.error_server
+import openlibapp.composeapp.generated.resources.error_too_many_requests
+import openlibapp.composeapp.generated.resources.error_unknown_local
+import openlibapp.composeapp.generated.resources.error_unknown_remote
 
 fun DataError.toUiText(): UiText {
     val string =

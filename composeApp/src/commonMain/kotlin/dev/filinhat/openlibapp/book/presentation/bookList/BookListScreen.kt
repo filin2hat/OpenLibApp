@@ -36,11 +36,11 @@ import dev.filinhat.openlibapp.book.domain.Book
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookList
 import dev.filinhat.openlibapp.book.presentation.bookList.components.BookSearchBar
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import openlibrarycmpapp.composeapp.generated.resources.Res
-import openlibrarycmpapp.composeapp.generated.resources.books_list
-import openlibrarycmpapp.composeapp.generated.resources.empty_favorites_list
-import openlibrarycmpapp.composeapp.generated.resources.favorites
-import openlibrarycmpapp.composeapp.generated.resources.no_results
+import openlibapp.composeapp.generated.resources.Res
+import openlibapp.composeapp.generated.resources.books_list
+import openlibapp.composeapp.generated.resources.empty_favorites_list
+import openlibapp.composeapp.generated.resources.favorites
+import openlibapp.composeapp.generated.resources.no_results
 import org.jetbrains.compose.resources.stringResource
 import org.koin.compose.viewmodel.koinViewModel
 

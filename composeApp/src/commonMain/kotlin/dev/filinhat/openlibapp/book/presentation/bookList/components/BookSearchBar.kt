@@ -24,9 +24,9 @@ import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import openlibrarycmpapp.composeapp.generated.resources.Res
-import openlibrarycmpapp.composeapp.generated.resources.clear_search_query
-import openlibrarycmpapp.composeapp.generated.resources.search_hint
+import openlibapp.composeapp.generated.resources.Res
+import openlibapp.composeapp.generated.resources.clear_search_query
+import openlibapp.composeapp.generated.resources.search_hint
 import org.jetbrains.compose.resources.stringResource
 
 /**

@@ -39,12 +39,12 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import coil3.compose.rememberAsyncImagePainter
 import dev.filinhat.openlibapp.core.presentation.PulseAnimation
-import openlibrarycmpapp.composeapp.generated.resources.Res
-import openlibrarycmpapp.composeapp.generated.resources.book_cover
-import openlibrarycmpapp.composeapp.generated.resources.book_error_2
-import openlibrarycmpapp.composeapp.generated.resources.btn_go_back
-import openlibrarycmpapp.composeapp.generated.resources.btn_mark_as_favorite
-import openlibrarycmpapp.composeapp.generated.resources.btn_remove_from_favorites
+import openlibapp.composeapp.generated.resources.Res
+import openlibapp.composeapp.generated.resources.book_cover
+import openlibapp.composeapp.generated.resources.book_error_2
+import openlibapp.composeapp.generated.resources.btn_go_back
+import openlibapp.composeapp.generated.resources.btn_mark_as_favorite
+import openlibapp.composeapp.generated.resources.btn_remove_from_favorites
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
