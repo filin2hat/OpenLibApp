@@ -4,9 +4,9 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.toRoute
+import dev.filinhat.openlibapp.app.navigation.OpenLibRoute
 import dev.filinhat.openlibapp.book.domain.BookRepository
 import dev.filinhat.openlibapp.core.domain.onSuccess
-import dev.filinhat.openlibapp.navigation.OpenLibRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.launchIn

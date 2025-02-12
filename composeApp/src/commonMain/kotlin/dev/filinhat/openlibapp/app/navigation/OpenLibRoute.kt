@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.navigation
+package dev.filinhat.openlibapp.app.navigation
 
 import kotlinx.serialization.Serializable
 
