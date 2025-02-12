@@ -63,7 +63,7 @@ fun BookListItem(
 ) {
     Surface(
         shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.surfaceBright,
+        color = MaterialTheme.colorScheme.surfaceDim,
         modifier = modifier.clickable(onClick = onClick),
     ) {
         Row(
@@ -140,6 +140,7 @@ fun BookListItem(
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
+                    color = MaterialTheme.colorScheme.onSurface,
                 )
 
                 book.authors.firstOrNull()?.let { author ->
@@ -148,6 +149,7 @@ fun BookListItem(
                         style = MaterialTheme.typography.bodyLarge,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
+                        color = MaterialTheme.colorScheme.onSurface,
                     )
                 }
                 book.firstPublishYear?.let { firstPublishYear ->
@@ -156,6 +158,7 @@ fun BookListItem(
                         style = MaterialTheme.typography.titleSmall,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
+                        color = MaterialTheme.colorScheme.onSurface,
                     )
                 }
                 book.averageRating?.let { avagRating ->
@@ -175,6 +178,7 @@ fun BookListItem(
                             maxLines = 1,
                             overflow = TextOverflow.Ellipsis,
                             modifier = Modifier.padding(start = 4.dp),
+                            color = MaterialTheme.colorScheme.onSurface,
                         )
                     }
                 }

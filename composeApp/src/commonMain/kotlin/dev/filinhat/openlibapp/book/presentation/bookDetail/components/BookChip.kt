@@ -38,7 +38,7 @@ fun BookChip(
                             ChipSize.REGULAR -> 70.dp
                         },
                 ).clip(RoundedCornerShape(16.dp))
-                .background(MaterialTheme.colorScheme.surfaceContainer)
+                .background(MaterialTheme.colorScheme.surfaceDim)
                 .padding(vertical = 4.dp, horizontal = 4.dp),
         contentAlignment = Alignment.Center,
     ) {

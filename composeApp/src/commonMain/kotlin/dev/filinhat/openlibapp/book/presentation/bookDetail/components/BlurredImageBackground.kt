@@ -3,24 +3,24 @@ package dev.filinhat.openlibapp.book.presentation.bookDetail.components
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.outlined.FavoriteBorder
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -102,24 +102,74 @@ fun BlurredImageBackground(
                     Modifier
                         .weight(0.7f)
                         .fillMaxWidth()
-                        .background(MaterialTheme.colorScheme.surfaceVariant),
-            ) {
-            }
-        }
-
-        IconButton(
-            onClick = onBackClick,
-            modifier =
-                Modifier
-                    .align(Alignment.TopStart)
-                    .padding(top = 16.dp, start = 16.dp)
-                    .statusBarsPadding(),
-        ) {
-            Icon(
-                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                contentDescription = stringResource(Res.string.btn_go_back),
-                tint = MaterialTheme.colorScheme.primary,
+                        .background(MaterialTheme.colorScheme.surface),
             )
+        }
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier.fillMaxWidth(),
+        ) {
+            IconButton(
+                onClick = onBackClick,
+                modifier =
+                    Modifier
+                        .padding(top = 16.dp, start = 16.dp)
+                        .statusBarsPadding()
+                        .background(
+                            brush =
+                                Brush.radialGradient(
+                                    colors =
+                                        listOf(
+                                            MaterialTheme.colorScheme.primary.copy(alpha = 0.65f),
+                                            Color.Transparent,
+                                        ),
+                                    radius = 60f,
+                                ),
+                        ),
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = stringResource(Res.string.btn_go_back),
+                    tint = MaterialTheme.colorScheme.secondary,
+                    modifier = Modifier.size(36.dp),
+                )
+            }
+
+            IconButton(
+                onClick = onFavoriteClick,
+                modifier =
+                    Modifier
+                        .padding(top = 16.dp, end = 16.dp)
+                        .statusBarsPadding()
+                        .background(
+                            brush =
+                                Brush.radialGradient(
+                                    colors =
+                                        listOf(
+                                            MaterialTheme.colorScheme.primary.copy(alpha = 0.65f),
+                                            Color.Transparent,
+                                        ),
+                                    radius = 60f,
+                                ),
+                        ),
+            ) {
+                Icon(
+                    imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Outlined.FavoriteBorder,
+                    contentDescription =
+                        if (isFavorite) {
+                            stringResource(Res.string.btn_remove_from_favorites)
+                        } else {
+                            stringResource(
+                                Res.string.btn_mark_as_favorite,
+                            )
+                        },
+                    tint = MaterialTheme.colorScheme.secondary,
+                    modifier =
+                        Modifier
+                            .size(32.dp),
+                )
+            }
         }
 
         Column(
@@ -128,13 +178,11 @@ fun BlurredImageBackground(
         ) {
             Spacer(modifier = Modifier.fillMaxHeight(0.15f))
 
-            ElevatedCard(
+            Box(
                 modifier =
                     Modifier
                         .height(250.dp)
                         .aspectRatio(2 / 3f),
-                shape = RoundedCornerShape(8.dp),
-                elevation = CardDefaults.elevatedCardElevation(defaultElevation = 15.dp),
             ) {
                 AnimatedContent(
                     targetState = imageLoadResult,
@@ -147,7 +195,10 @@ fun BlurredImageBackground(
                                 contentAlignment = Alignment.Center,
                             ) {
                                 PulseAnimation(
-                                    modifier = Modifier.size(60.dp),
+                                    modifier =
+                                        Modifier
+                                            .offset(y = 40.dp)
+                                            .size(80.dp),
                                 )
                             }
 
@@ -162,33 +213,6 @@ fun BlurredImageBackground(
                                             .background(Color.Transparent)
                                             .fillMaxSize(),
                                 )
-
-                                IconButton(
-                                    onClick = onFavoriteClick,
-                                    modifier =
-                                        Modifier
-                                            .align(Alignment.BottomEnd)
-                                            .background(
-                                                brush =
-                                                    Brush.radialGradient(
-                                                        colors = listOf(MaterialTheme.colorScheme.tertiary, Color.Transparent),
-                                                        radius = 80f,
-                                                    ),
-                                            ),
-                                ) {
-                                    Icon(
-                                        imageVector = if (isFavorite) Icons.Default.Favorite else Icons.Outlined.FavoriteBorder,
-                                        contentDescription =
-                                            if (isFavorite) {
-                                                stringResource(Res.string.btn_remove_from_favorites)
-                                            } else {
-                                                stringResource(
-                                                    Res.string.btn_mark_as_favorite,
-                                                )
-                                            },
-                                        tint = MaterialTheme.colorScheme.tertiary,
-                                    )
-                                }
                             }
                         }
                     }

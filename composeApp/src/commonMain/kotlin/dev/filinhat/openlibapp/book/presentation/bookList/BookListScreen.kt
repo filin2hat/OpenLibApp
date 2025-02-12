@@ -141,7 +141,7 @@ fun BookListScreen(
                     .weight(1f)
                     .fillMaxWidth()
                     .padding(16.dp),
-            color = MaterialTheme.colorScheme.surfaceVariant,
+            color = MaterialTheme.colorScheme.surface,
             shape =
                 RoundedCornerShape(
                     topStart = 32.dp,
@@ -158,8 +158,8 @@ fun BookListScreen(
                             .padding(vertical = 12.dp)
                             .widthIn(max = 700.dp)
                             .fillMaxWidth(),
-                    containerColor = MaterialTheme.colorScheme.surfaceVariant,
-                    contentColor = MaterialTheme.colorScheme.onSurfaceVariant,
+                    containerColor = MaterialTheme.colorScheme.surface,
+                    contentColor = MaterialTheme.colorScheme.onSurface,
                     indicator = { tabPositions ->
                         TabRowDefaults.SecondaryIndicator(
                             color = MaterialTheme.colorScheme.primary,
@@ -176,7 +176,7 @@ fun BookListScreen(
                         },
                         modifier = Modifier.weight(1f),
                         selectedContentColor = MaterialTheme.colorScheme.primary,
-                        unselectedContentColor = MaterialTheme.colorScheme.inversePrimary,
+                        unselectedContentColor = MaterialTheme.colorScheme.onSurface,
                     ) {
                         Text(
                             text = stringResource(Res.string.books_list),
@@ -191,7 +191,7 @@ fun BookListScreen(
                         },
                         modifier = Modifier.weight(1f),
                         selectedContentColor = MaterialTheme.colorScheme.primary,
-                        unselectedContentColor = MaterialTheme.colorScheme.inversePrimary,
+                        unselectedContentColor = MaterialTheme.colorScheme.onSurface,
                     ) {
                         Text(
                             text = stringResource(Res.string.favorites),
