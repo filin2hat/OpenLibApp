@@ -15,7 +15,7 @@ import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailScreenRoot
 import dev.filinhat.openlibapp.book.presentation.bookDetail.BookDetailViewModel
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListScreenRoot
 import dev.filinhat.openlibapp.book.presentation.bookList.BookListViewModel
-import dev.filinhat.openlibapp.book.presentation.bookList.SelectedBookViewModel
+import dev.filinhat.openlibapp.book.presentation.sharedViewModel.SelectedBookViewModel
 import dev.filinhat.openlibapp.core.navigation.sharedKoinViewModel
 import org.koin.compose.viewmodel.koinViewModel
 

@@ -1,4 +1,4 @@
-package dev.filinhat.openlibapp.book.presentation.bookList
+package dev.filinhat.openlibapp.book.presentation.sharedViewModel
 
 import androidx.lifecycle.ViewModel
 import dev.filinhat.openlibapp.book.domain.Book
@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 /**
- * ViewModel для управления выбранной книгой.
+ * Общая ViewModel для управления выбранной книгой.
  *
  * Этот ViewModel хранит информацию о текущей выбранной книге
  * и предоставляет методы для её изменения.
