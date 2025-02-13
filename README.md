@@ -64,6 +64,6 @@
 
 ## Полезные ссылки:
 - Узнайте больше о [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
-- Temnplate нового проекта можно создать тут: [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com/).
+- Template нового проекта можно создать тут: [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com/).
 - Все доступные библиотеки для KMP: [Kotlin Multiplatform Libs](https://klibs.io/).
 - Open Library Web APIs: [link](https://openlibrary.org/developers/api).
