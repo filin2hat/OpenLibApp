@@ -49,7 +49,6 @@ internal fun OpenLibAppTheme(content: @Composable () -> Unit) {
         LocalThemeIsDark provides isDarkState,
     ) {
         val isDark by isDarkState
-        SystemAppearance(!isDark)
         MaterialTheme(
             colorScheme = if (isDark) DarkColors else LightColors,
             content = { Surface(content = content) },
