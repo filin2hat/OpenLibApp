@@ -157,7 +157,8 @@ fun BlurredImageBackground(
                                 Brush.radialGradient(
                                     colors =
                                         listOf(
-                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.65f),
+                                            Color.Transparent,
+                                            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.45f),
                                             Color.Transparent,
                                         ),
                                     radius = 60f,
