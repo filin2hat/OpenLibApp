@@ -1,16 +1,16 @@
 package dev.filinhat.openlibapp.core.presentation
 
 import dev.filinhat.openlibapp.core.domain.DataError
-import openlibapp.composeapp.generated.resources.Res
-import openlibapp.composeapp.generated.resources.error_disk_full
-import openlibapp.composeapp.generated.resources.error_no_data
-import openlibapp.composeapp.generated.resources.error_no_internet_connection
-import openlibapp.composeapp.generated.resources.error_request_timeout
-import openlibapp.composeapp.generated.resources.error_serialization
-import openlibapp.composeapp.generated.resources.error_server
-import openlibapp.composeapp.generated.resources.error_too_many_requests
-import openlibapp.composeapp.generated.resources.error_unknown_local
-import openlibapp.composeapp.generated.resources.error_unknown_remote
+import openlibapp.openlibraryapp.generated.resources.Res
+import openlibapp.openlibraryapp.generated.resources.error_disk_full
+import openlibapp.openlibraryapp.generated.resources.error_no_data
+import openlibapp.openlibraryapp.generated.resources.error_no_internet_connection
+import openlibapp.openlibraryapp.generated.resources.error_request_timeout
+import openlibapp.openlibraryapp.generated.resources.error_serialization
+import openlibapp.openlibraryapp.generated.resources.error_server
+import openlibapp.openlibraryapp.generated.resources.error_too_many_requests
+import openlibapp.openlibraryapp.generated.resources.error_unknown_local
+import openlibapp.openlibraryapp.generated.resources.error_unknown_remote
 
 /**
  * Конвертирует [DataError] в [UiText].
