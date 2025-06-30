@@ -1,69 +1,69 @@
-# Open Library Mobile App
+# Open Library App
 
-### Мультиплатформенное приложение работающее с API сервиса Open Library.
+A sleek, multiplatform app built with Kotlin Multiplatform and Compose Multiplatform that lets you explore the vast Open Library catalog. Browse, search, and save your favorite books on Android, iOS, and Desktop from a single codebase.
 
 ![Open Lib App](screenshot/version_1.png)
 
-## Описание приложения:
-Простое демо-приложение, которое позволяет осуществлять поиск, просмотр детальной информации, сохранение в избранное книг, которыми располагает сервис Open Library.
-Приложение одномодульное, использующее общую бизнес-логику (Kotlin Multiplatform) и общий интерфейс (Compose Multiplatform) для платформ: Android, iOS, Desktop.
+## ✨ Features
 
-#### Главный экран
-- содержит список ТОП-50 популярных книг в текущем году. Так же на главном экране отображается поисковая строка, где можно ввести поисковый запрос. После срабатывания поискового запроса отображается список найденных книг.
-- список книг «Избранное»: содержит ваши избранные книги.
-- переход между основным списком и списком избранных книг осуществляется либо нажатием на определенный таб, либо свайпом в сторону.
+- **Discover:** Browse the Top 50 trending books of the year.
+- **Search:** Find any book in the Open Library database with a powerful search.
+- **Book Details:** View comprehensive information, including cover art, author, average rating, page count, synopsis, and available languages.
+- **Favorites:** Save books for quick, offline access. Your favorites are stored locally on your device.
+- **Seamless UI:** A clean and intuitive interface with smooth navigation between your book lists.
 
-#### Экран детальной информации
-- по нажатию на элемент списка, откроется экран с детальной информацией о книге, на котором представлена обложка книги, название книги, имя автора,  средний рейтинг, количество страниц, синопсис, языки на которых издана книга.
-- в верхей части имеется кнопка добавления в избранное, по нажатию которой, выбранная книга будет отображатся в списке избранных книг, а информация о книге будет доступна локально.
-- так же, в верхней части экрана имеетя кнопка перехода обратно, к главному экрану.
+## 📱 Supported Platforms
 
+- **Android**
+- **iOS**
+- **Desktop** (Windows, macOS, Linux)
 
-## Конфигурация:
-- Для сборки проекта используется Gradle Plugin 8.5.2
-- Android compile SDK 35
-- Android min SDK 24
-- Версия Kotlin 2.1.10
-- Для управлением состояним интерфейса используется шаблон MVI.
-- Для навигации между эранами используется Navigation with Compose.
-- Для внедрения заависимостей используется Koin.  
+## 🛠️ Tech Stack & Architecture
 
-  
-## Используемые библиотеки:
-* **Koin 4** - для внедрения зависимостей.
-* **KotlinX Serialization** - для сериализации данных.
-* **Room** - для работы в базой данных.
-* **Ktor** - для работы с сетевыми запросами.
-* **Coil 3** - для загрузки и работы с  изображениями.
+This project leverages modern technologies to deliver a consistent experience across all platforms.
 
+- **Core Frameworks:**
+  - [Kotlin Multiplatform](https://kotlinlang.org/docs/multiplatform-get-started.html) for sharing business logic.
+  - [Compose Multiplatform](https://www.jetbrains.com/lp/compose-multiplatform/) for building the shared UI.
+- **Architecture:** MVI (Model-View-Intent) to manage UI state.
+- **Dependency Injection:** [Koin](https://insert-koin.io/) for managing dependencies across the shared codebase.
+- **Networking:** [Ktor](https://ktor.io/) for making API calls to the Open Library API.
+- **Database:** [Room](https://developer.android.com/training/data-storage/room) for local persistence of favorite books.
+- **Serialization:** [KotlinX Serialization](https://github.com/Kotlin/kotlinx.serialization) for parsing JSON data.
+- **Image Loading:** [Coil 3](https://coil-kt.github.io/coil/) for asynchronously loading and displaying book covers.
+- **Navigation:** [Jetpack Navigation for Compose](https://developer.android.com/jetpack/compose/navigation) for navigating between screens.
 
-## Структура проекта:
-### `/composeApp`
-Папка для кода, который будет использоваться во всех приложениях Compose Multiplatform. Включает несколько подпапок:
-- **`commonMain`**: код, общий для всех платформ.
-- Остальные папки содержат Kotlin-код, который компилируется только для указанной в названии папки платформы.  
-  Например, если вы хотите использовать **CoreCrypto** от Apple для iOS, код нужно поместить в папку **`iosMain`**.
+## 🚀 Getting Started
 
-### `/iosApp`
-- содержит iOS-часть приложения.
-Даже если интерфейс создан с использованием Compose Multiplatform, вам понадобится эта папка как точка входа для iOS-приложения.  
-Кроме того, здесь можно добавлять код на **SwiftUI**.
+### Prerequisites
 
-## Запуск проекта:
+- JDK 17 or higher
+- Android Studio
+- Xcode (for the iOS target)
+
+### How to Run
+
 #### Android
- - запуск обычными методами Android Studio.
+1. Open the project in Android Studio.
+2. Select the `openLibraryApp` run configuration.
+3. Build and run the app.
 
 #### Desktop
- - в терминале выполнить команду `.\gradlew run`.
+Execute the following command in the project's root directory:
+```bash
+./gradlew run
+```
 
 #### iOS
- - в корне проекта найти папку `/iosApp/iOSApp.xcodeproj/project.xcworkspace` и открыть ее в Xcode.
- - выполнить первоначальную компиляцию проекта для устранения проблем с внешними зависимостями.
- - запустить проект в Xcode.
+1. Navigate to the `iosApp` directory.
+2. Open `iosApp.xcodeproj` in Xcode.
+3. Run an initial build to resolve dependencies (`Cmd+B`).
+4. Run the project from Xcode.
 
+## 🔗 Useful Links
 
-## Полезные ссылки:
-- Узнайте больше о [Kotlin Multiplatform](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html).
-- Template нового проекта можно создать тут: [Kotlin Multiplatform Wizard](https://kmp.jetbrains.com/).
-- Все доступные библиотеки для KMP: [Kotlin Multiplatform Libs](https://klibs.io/).
-- Open Library Web APIs: [link](https://openlibrary.org/developers/api).
+- [Open Library APIs](https://openlibrary.org/developers/api)
+- [Kotlin Multiplatform Documentation](https://www.jetbrains.com/help/kotlin-multiplatform-dev/get-started.html)
+- [Compose Multiplatform Documentation](https://www.jetbrains.com/lp/compose-multiplatform/)
+- [Find KMP Libraries](https://klibs.io/)
+
